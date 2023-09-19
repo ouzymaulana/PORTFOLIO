@@ -14,7 +14,7 @@ export default function Portfolios() {
       name: "WAPPIN LANDING-PAGE",
       url: "https://github.com/ouzymaulana/web_wappin",
       img: wappin3,
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
+      desc: "Lorem Ipsum standard dummy text ever since the 1500s to make a five centuries, but also the leap into electronic typesetting, ",
     },
     {
       name: "URANUS CAFE",
@@ -48,7 +48,7 @@ export default function Portfolios() {
     },
   ];
   return (
-    <main className="min-h-max bg-card flex flex-col items-center py-28 max-sm:py-5 px-40 max-sm:px-20 gap-14 max-sm:gap-6">
+    <main className="min-h-max bg-card flex flex-col items-center py-28 max-sm:py-5 max-xl:px-40 xl:px-10 max-sm:px-20 gap-14 max-sm:gap-6">
       <div className="flex flex-col items-center">
         <h3 className="text-3xl xl:text-xl max-sm:text-base font-conforter font-semibold text-title">
           Portfolios
@@ -57,7 +57,7 @@ export default function Portfolios() {
           My Masterpiece Collection
         </h4>
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-20 max-sm:gap-6 font-conforter">
+      <div className="flex flex-wrap items-center justify-center gap-20 xl:gap-8 max-sm:gap-6 font-conforter">
         <>
           {portfoliosData.map((item, i) => (
             <PortfoliosItem item={item} index={i} />
