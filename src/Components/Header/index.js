@@ -30,7 +30,7 @@ export default function Header() {
         >
           <IoMdClose size={"2em"} />
         </div>
-        <ul className="flex sm:flex-row max-sm:flex-col sm:space-x-16 max-sm:space-y-10 max-sm:justify-center max-sm:items-center sm:justify-between font-conforter font-bold text-lg max-sm:text-title sm:text-black lg:text-xl md:text-sm sm:text-xs max-sm:text-xs">
+        <ul className="flex sm:flex-row max-sm:flex-col sm:space-x-16 max-sm:space-y-10 max-sm:justify-center max-sm:items-center sm:justify-between font-conforter font-bold text-lg max-sm:text-title sm:text-black lg:text-xl xl:text-lg md:text-sm sm:text-xs max-sm:text-xs">
           <li>
             <a href="#home">Home</a>
           </li>
