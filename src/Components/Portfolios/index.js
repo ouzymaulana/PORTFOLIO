@@ -48,7 +48,10 @@ export default function Portfolios() {
     },
   ];
   return (
-    <main className="min-h-max bg-card flex flex-col items-center py-28 max-sm:py-5 max-xl:px-40 xl:px-10 max-sm:px-20 gap-14 max-sm:gap-6">
+    <main
+      className="min-h-max bg-card flex flex-col items-center py-28 max-sm:py-5 max-xl:px-40 xl:px-10 max-sm:px-20 gap-14 max-sm:gap-6"
+      id="portfolio"
+    >
       <div className="flex flex-col items-center">
         <h3 className="text-3xl xl:text-xl max-sm:text-base font-conforter font-semibold text-title">
           Portfolios

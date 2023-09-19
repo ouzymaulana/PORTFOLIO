@@ -11,7 +11,10 @@ export default function Footer() {
     window.open(url, "_blank");
   };
   return (
-    <footer className="bg-footerBg h-  max-sm:h-min bg-cover bg-top object-cover py-10 max-sm:py-3 gap-5">
+    <footer
+      className="bg-footerBg  max-sm:h-min bg-cover bg-top object-cover py-10 max-sm:py-3 gap-5"
+      id="contact"
+    >
       <div className="flex flex-col items-center">
         <h3 className="text-xl max-sm:text-xs font-conforter font-semibold text-title">
           Contact Us

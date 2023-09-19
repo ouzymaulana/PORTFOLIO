@@ -5,7 +5,10 @@ import { BiCodeCurly } from "react-icons/bi";
 
 export default function Services() {
   return (
-    <main className=" min-h-max bg-main flex flex-col items-center py-28 max-sm:py-5 max-xl:px-40 max-sm:px-20 gap-14 max-sm:gap-6">
+    <main
+      className=" min-h-max bg-main flex flex-col items-center py-28 max-sm:py-5 max-xl:px-40 max-sm:px-20 gap-14 max-sm:gap-6"
+      id="service"
+    >
       <div className="flex flex-col items-center">
         <h3 className="text-3xl xl:text-xl max-sm:text-base font-conforter font-semibold text-title">
           Services

@@ -3,7 +3,10 @@ import profile from "../../assets/img/Vector 1.svg";
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center bg-main sm:h-screen lg:px-40 max-sm:px-10 gap-20 max-sm:gap-3 max-sm:pb-5 flex-wrap max-lg:pt-64 max-sm:pt-0">
+    <main
+      className="flex justify-center items-center bg-main sm:h-screen lg:px-40 max-sm:px-10 gap-20 max-sm:gap-3 max-sm:pb-5 flex-wrap max-lg:pt-64 max-sm:pt-0"
+      id="home"
+    >
       <div className="flex h-1/2 md:h-0.5 justify-center items-center">
         <div className="font-grandStander lg:text-3xl xl:text-5xl 2xl:text-7xl md:text-5xl sm:text-4xl">
           <h1>
