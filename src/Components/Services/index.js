@@ -14,16 +14,16 @@ export default function Services() {
           What I'm Great At
         </h4>
       </div>
-      <div className="flex flex-wrap items-center justify-center gap-20 max-sm:gap-6 font-conforter font-semibold text-lg max-sm:text-xs2">
-        <div className="bg-card shadow-lg h-32 w-80 max-sm:w-72 max-sm:h-20 rounded-xl flex gap-4 justify-center items-center">
+      <div className="flex flex-wrap items-center justify-center gap-20 text-white max-sm:gap-6 font-conforter font-semibold text-lg max-sm:text-xs2">
+        <div className="bg-dark border-4 max-sm:border-2 border-[#EF9A53] shadow-lg h-32 w-80 max-sm:w-72 max-sm:h-20 rounded-xl flex gap-4 justify-center items-center">
           <BiCodeBlock size={"2.2em"} />
           <div>Frontend Engineer</div>
         </div>
-        <div className="bg-card shadow-lg h-32 w-80 max-sm:w-72 max-sm:h-20 rounded-xl flex gap-4 justify-center items-center">
+        <div className="bg-dark border-4 max-sm:border-2 border-[#EF9A53] shadow-lg h-32 w-80 max-sm:w-72 max-sm:h-20 rounded-xl flex gap-4 justify-center items-center">
           <BiCodeCurly size={"2em"} />
           <div>Backend Developer</div>
         </div>
-        <div className="bg-card shadow-lg h-32 w-80 max-sm:w-72 max-sm:h-20 rounded-xl flex gap-4 justify-center items-center">
+        <div className="bg-dark border-4 max-sm:border-2 border-[#EF9A53] shadow-lg h-32 w-80 max-sm:w-72 max-sm:h-20 rounded-xl flex gap-4 justify-center items-center">
           <FaPenNib size={"1.8em"} />
           <div>Web Design</div>
         </div>
