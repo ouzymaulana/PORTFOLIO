@@ -50,10 +50,10 @@ export default function Portfolios() {
   return (
     <main className="min-h-max bg-card flex flex-col items-center py-28 max-sm:py-5 px-40 max-sm:px-20 gap-14 max-sm:gap-6">
       <div className="flex flex-col items-center">
-        <h3 className="text-3xl max-sm:text-base font-conforter font-semibold text-title">
+        <h3 className="text-3xl xl:text-xl max-sm:text-base font-conforter font-semibold text-title">
           Portfolios
         </h3>
-        <h4 className="text-6xl max-sm:text-xl max-lg:text-3xl font-conforter font-semibold text-center">
+        <h4 className="text-6xl xl:text-4xl max-sm:text-xl max-lg:text-3xl font-conforter font-semibold text-center">
           My Masterpiece Collection
         </h4>
       </div>

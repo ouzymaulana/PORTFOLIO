@@ -20,7 +20,7 @@ export default function Footer() {
           Ways To Contact Me
         </h4>
       </div>
-      <div className="mt-8 max-sm:mt-2 mb-8 lg:mx-96 flex flex-row justify-evenly font-conforter sm:font-semibold max-sm:text-xs text-white flex-wrap gap-10 max-sm:gap-2 max-sm:px-6">
+      <div className="mt-8 max-sm:mt-2 mb-8 lg:mx-96 xl:mx-14 flex flex-row justify-evenly font-conforter sm:font-semibold max-sm:text-xs text-white flex-wrap gap-10 max-sm:gap-2 max-sm:px-6">
         <div className="bg-contact bg-opacity-40 p-3 max-sm:p-0.5 flex justify-center items-center gap-4 max-sm:gap-2 rounded-lg cursor-pointer">
           <HiOutlineMail size={"1.8em"} className="max-sm:h-3 max-sm:w-3" />
           <p>ouzymaulana@gmail.com</p>
