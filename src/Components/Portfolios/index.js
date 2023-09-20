@@ -32,13 +32,13 @@ export default function Portfolios() {
       name: "FOODIE ORDER",
       url: "https://github.com/ouzymaulana/foodie-order",
       img: foodieOrder,
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
+      desc: "This is a food ordering application that uses the NextJs framework as the frontend and ExpressJs for the backend, implements Restful API, Axios, Redux, Material UI, Formik and implements JWT for data security.",
     },
     {
       name: "FOODIE ORDER BACKEND",
       url: "https://github.com/ouzymaulana/pemesanan_makanan",
       img: backendFoodieOrder,
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
+      desc: "Using the ExpressJs framework to back up the foodie order application using MySql for data storage, implementing JWT jsonwebtoken for data security.",
     },
     {
       name: "My-Banking",
