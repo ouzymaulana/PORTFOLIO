@@ -20,7 +20,7 @@ export default function PortfoliosItem({ item, index }) {
       <div className="text-lg max-sm:text-sm font-semibold">
         <h5>{item.name}</h5>
       </div>
-      <div className="text-justify overflow-hidden max-h-28 text-clip max-sm:text-xs1">
+      <div className="text-justify overflow-hidden max-h-28 max-sm:text-xs1 xl:text-xs1">
         <p>{item.desc}</p>
       </div>
     </div>

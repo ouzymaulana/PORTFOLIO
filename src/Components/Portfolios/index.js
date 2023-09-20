@@ -14,19 +14,19 @@ export default function Portfolios() {
       name: "WAPPIN LANDING-PAGE",
       url: "https://github.com/ouzymaulana/web_wappin",
       img: wappin3,
-      desc: "Lorem Ipsum standard dummy text ever since the 1500s to make a five centuries, but also the leap into electronic typesetting, ",
+      desc: "This landing page application was created to strengthen my knowledge of fundamentals as frontend developer, here I learn the basics of CSS, HTML, Javascript, Dom, CSS Flexbox, responsive websites. I worked on this project before I entered the ReactJS and NextJS frameworks.",
     },
     {
       name: "URANUS CAFE",
       url: "https://github.com/ouzymaulana/uranus-cafe",
       img: uranus,
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
+      desc: "This is a food ordering application, the application uses the ReactJS framework, in this application I implemented the creation and use of a component, use of react hooks, react router, state management(context).",
     },
     {
       name: "E-COMMERCE",
       url: "https://github.com/ouzymaulana/todo-list",
       img: ecommerce,
-      desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, ",
+      desc: "I built this application using the nextjs framework which implements state management (redux & redux toolkit) and manipulates data when there are changes to the quantity.",
     },
     {
       name: "FOODIE ORDER",
