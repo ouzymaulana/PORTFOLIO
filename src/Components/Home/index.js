@@ -21,7 +21,7 @@ export default function Home() {
           alt="PROFILE"
           height={550}
           width={600}
-          className="max-sm:h-60 max-sm:w-80 max-lg:h-96 max-lg:w-96 lg:h-80 lg:w-80 2xl:w-96 2xl:h-3/5"
+          className="max-sm:h-64 max-sm:w-80 max-lg:h-96 max-lg:w-96 lg:h-80 lg:w-80 2xl:w-96 2xl:h-3/5"
         />
       </div>
     </main>
