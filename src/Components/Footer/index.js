@@ -64,7 +64,7 @@ export default function Footer() {
       </div>
       <hr className="bg-portfolioCart border-hrBorder" />
       <div className="text-white flex justify-center items-center max-sm:text-xs mt-1">
-        <p>&copy; 2019 Copyright by Ouzy Maulana. All Right Reserved</p>
+        <p>&copy; 2023 Copyright by Ouzy Maulana. All Right Reserved</p>
       </div>
     </footer>
   );
