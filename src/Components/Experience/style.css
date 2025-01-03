@@ -1,0 +1,19 @@
+.career .arrow {
+  width: 180px;
+  margin-top: 4px;
+}
+
+.career .line {
+  width: 100px;
+  height: 27px;
+  float: left;
+}
+
+.career .point {
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 20px solid #ffd4a0;
+  /* float: right; */
+}

@@ -5,6 +5,7 @@ import Skills from "../Components/Skills";
 import Services from "../Components/Services";
 import Portfolios from "../Components/Portfolios";
 import Footer from "../Components/Footer";
+import Experience from "../Components/Experience";
 
 export default function Main() {
   return (
@@ -14,6 +15,7 @@ export default function Main() {
       <Skills />
       <Services />
       <Portfolios />
+      <Experience />
       <Footer />
     </>
   );
