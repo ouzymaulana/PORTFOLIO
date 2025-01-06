@@ -1,5 +1,4 @@
 .career .arrow {
-  width: 180px;
   margin-top: 4px;
 }
 
@@ -23,12 +22,11 @@
 }
 
 .job-desc {
-  width: 480px;
+  width: 600px;
 }
 
 @media (max-width: 560px) {
   .career .arrow {
-    width: 120px;
     margin-top: 10px;
   }
 
