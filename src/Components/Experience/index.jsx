@@ -38,10 +38,22 @@ const Experience = () => {
                 Frontend Developer
               </h3>
               <p class="text-gray-500 max-sm:text-sm">BNI Sekuritas</p>
-              <p class="text-sm text-gray-400 mt-2 text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
-                metus nec fringilla accumsan, risus sem sollicitudin lacus.
+              <p class="text-sm text-gray-400 mt-2 text-justify job-desc">
+                Developing web applications using ReactJS, TypeScript, Webpack,
+                and Micro Frontend architecture.
+                <br />
+                Analyzing user requirements and taking necessary steps to ensure
+                task completion.
+                <br />
+                Developing design plans based on analysis results, including
+                implementation designs.
+                <br />
+                Conducting thorough testing of programming outputs, ranging from
+                unit to system levels, and User Acceptance Testing (UAT) as
+                requested.
+                <br />
+                Delivering effective presentations of work outcomes to both
+                management and clients, as required.
               </p>
             </div>
           </div>
@@ -68,10 +80,18 @@ const Experience = () => {
               <p class="text-gray-500 max-sm:text-sm">
                 PT. Solusi Pembayaran Elektronik
               </p>
-              <p class="text-sm text-gray-400 mt-2 text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
-                metus nec fringilla accumsan, risus sem sollicitudin lacus.
+              <p class="text-sm text-gray-400 mt-2 text-justify job-desc">
+                Create landing page projects,
+                <br />
+                Implementing the React js Framework into the project,
+                <br />
+                Implementing the Next js Framework into projects,
+                <br />
+                Implementing the Express js Framework into the project,
+                <br />
+                Learn how to create and use JWT jsonwebtoken in projects,
+                <br />
+                Web Design using figma.
               </p>
             </div>
           </div>
@@ -98,10 +118,19 @@ const Experience = () => {
               <p class="text-gray-500 max-sm:text-sm">
                 PT. Solusi Pembayaran Elektronik
               </p>
-              <p class="text-sm text-gray-400 mt-2 text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
-                metus nec fringilla accumsan, risus sem sollicitudin lacus.
+              <p class="text-sm text-gray-400 mt-2 text-justify job-desc">
+                In-depth knowledge of HTML-CSS, PHP, basic Javascript and how to
+                use it,
+                <br />
+                Working with databases using MySql,
+                <br />
+                Working with CodeIgniter framework,
+                <br />
+                Consume data from Global API,
+                <br />
+                Using GIT and GITHUB,
+                <br />
+                Build a web-based e-commerce application.
               </p>
             </div>
           </div>

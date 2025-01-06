@@ -22,6 +22,10 @@
   box-shadow: 1px 3px 10px rgb(231, 149, 27);
 }
 
+.job-desc {
+  width: 480px;
+}
+
 @media (max-width: 560px) {
   .career .arrow {
     width: 120px;
@@ -37,5 +41,9 @@
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-left: 16px solid #ffd4a0;
+  }
+
+  .job-desc {
+    width: auto;
   }
 }
