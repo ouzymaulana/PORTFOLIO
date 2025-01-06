@@ -38,7 +38,7 @@ const Experience = () => {
                 Frontend Developer
               </h3>
               <p class="text-gray-500 max-sm:text-sm">BNI Sekuritas</p>
-              <p class="text-sm text-gray-400 mt-2">
+              <p class="text-sm text-gray-400 mt-2 text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
                 metus nec fringilla accumsan, risus sem sollicitudin lacus.
@@ -68,7 +68,7 @@ const Experience = () => {
               <p class="text-gray-500 max-sm:text-sm">
                 PT. Solusi Pembayaran Elektronik
               </p>
-              <p class="text-sm text-gray-400 mt-2">
+              <p class="text-sm text-gray-400 mt-2 text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
                 metus nec fringilla accumsan, risus sem sollicitudin lacus.
@@ -98,7 +98,7 @@ const Experience = () => {
               <p class="text-gray-500 max-sm:text-sm">
                 PT. Solusi Pembayaran Elektronik
               </p>
-              <p class="text-sm text-gray-400 mt-2">
+              <p class="text-sm text-gray-400 mt-2 text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
                 metus nec fringilla accumsan, risus sem sollicitudin lacus.
