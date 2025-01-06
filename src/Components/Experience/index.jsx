@@ -4,7 +4,7 @@ import "./style.css";
 const Experience = () => {
   return (
     <main
-      className="bg-main min-h-max flex flex-col items-center py-28 max-sm:py-5 xl:px-10 max-sm:px-20 gap-14 max-sm:gap-6"
+      className="bg-main min-h-max flex flex-col items-center py-28 max-sm:py-5 xl:px-10 gap-14 max-sm:gap-6"
       id="portfolio"
     >
       <div className="flex flex-col items-center">
