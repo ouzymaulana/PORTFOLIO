@@ -4,7 +4,7 @@ import "./style.css";
 const Experience = () => {
   return (
     <main
-      className="bg-main min-h-max flex flex-col items-center py-28 max-sm:py-5 max-xl:px-40 xl:px-10 max-sm:px-20 gap-14 max-sm:gap-6"
+      className="bg-main min-h-max flex flex-col items-center py-28 max-sm:py-5 xl:px-10 max-sm:px-20 gap-14 max-sm:gap-6"
       id="portfolio"
     >
       <div className="flex flex-col items-center">
@@ -20,24 +20,24 @@ const Experience = () => {
           <div class="mb-8 flex gap-4 career">
             <div class="arrow flex">
               <div class="line flex justify-center items-center bg-portfolioCart">
-                <small className="text-gray-500 font-semibold">
+                <small className="text-gray-500 font-semibold max-sm:text-xs">
                   2024 - Present
                 </small>
               </div>
               <div class="point"></div>
             </div>
             <div class="bg-main flex flex-col justify-center items-center gap-2 w-4 mt-3">
-              <div className="bg-yellow-500 rounded-full w-3.5 h-4"></div>
+              <div className="bg-yellow-500 rounded-full w-3.5 h-4 career-shadow"></div>
               <div
                 className="bg-portfolioCart h-full rounded-full"
                 style={{ width: "4px" }}
               ></div>
             </div>
             <div>
-              <h3 class="text-xl font-bold text-gray-600">
+              <h3 class="text-xl font-bold text-gray-600 max-sm:text-sm">
                 Frontend Developer
               </h3>
-              <p class="text-gray-500">BNI Sekuritas</p>
+              <p class="text-gray-500 max-sm:text-sm">BNI Sekuritas</p>
               <p class="text-sm text-gray-400 mt-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
@@ -48,22 +48,26 @@ const Experience = () => {
           <div class="mb-8 flex gap-4 career">
             <div class="arrow flex">
               <div class="line flex justify-center items-center bg-portfolioCart">
-                <small className="text-gray-500 font-semibold">2023</small>
+                <small className="text-gray-500 font-semibold max-sm:text-xs">
+                  2023
+                </small>
               </div>
               <div class="point"></div>
             </div>
             <div class="bg-main flex flex-col justify-center items-center gap-2 w-4 mt-3">
-              <div className="bg-yellow-500 rounded-full w-3.5 h-4 shadow-red-600"></div>
+              <div className="career-shadow bg-yellow-500 rounded-full w-3.5 h-4"></div>
               <div
                 className="bg-portfolioCart h-full rounded-full"
                 style={{ width: "4px" }}
               ></div>
             </div>
             <div>
-              <h3 class="text-xl font-bold text-gray-600">
-                Frontend Developer
+              <h3 class="text-xl font-bold text-gray-600 max-sm:text-sm">
+                Frontend Engineer
               </h3>
-              <p class="text-gray-500">BNI Sekuritas</p>
+              <p class="text-gray-500 max-sm:text-sm">
+                PT. Solusi Pembayaran Elektronik
+              </p>
               <p class="text-sm text-gray-400 mt-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
@@ -74,22 +78,26 @@ const Experience = () => {
           <div class="mb-8 flex gap-4 career">
             <div class="arrow flex">
               <div class="line flex justify-center items-center bg-portfolioCart">
-                <small className="text-gray-500 font-semibold">2023</small>
+                <small className="text-gray-500 font-semibold max-sm:text-xs">
+                  2021
+                </small>
               </div>
               <div class="point"></div>
             </div>
             <div class="bg-main flex flex-col justify-center items-center gap-2 w-4 mt-3">
-              <div className="bg-yellow-500 rounded-full w-3.5 h-4 shadow-red-600"></div>
+              <div className="bg-yellow-500 rounded-full w-3.5 h-4 career-shadow"></div>
               <div
                 className="bg-portfolioCart h-full rounded-full"
                 style={{ width: "4px" }}
               ></div>
             </div>
             <div>
-              <h3 class="text-xl font-bold text-gray-600">
-                Frontend Developer
+              <h3 class="text-xl font-bold text-gray-600 max-sm:text-sm">
+                Software Engineer
               </h3>
-              <p class="text-gray-500">BNI Sekuritas</p>
+              <p class="text-gray-500 max-sm:text-sm">
+                PT. Solusi Pembayaran Elektronik
+              </p>
               <p class="text-sm text-gray-400 mt-2">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,

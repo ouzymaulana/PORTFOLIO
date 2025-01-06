@@ -17,3 +17,25 @@
   border-left: 20px solid #ffd4a0;
   /* float: right; */
 }
+
+.career .career-shadow {
+  box-shadow: 1px 3px 10px rgb(231, 149, 27);
+}
+
+@media (max-width: 560px) {
+  .career .arrow {
+    width: 120px;
+    margin-top: 10px;
+  }
+
+  .career .line {
+    width: 70px;
+    height: 19px;
+  }
+
+  .career .point {
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid #ffd4a0;
+  }
+}
