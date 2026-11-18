@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import portrait from "./img/ouzy.jpg";
+import portraitNight from "./img/ouzy-kl.jpg";
 import foodieOrder from "./img/foodieOrder.jpg";
 import ecommerce from "./img/e-commerce.jpg";
 import uranus from "./img/uranus-cafe.jpg";
@@ -489,6 +490,8 @@ function Projects() {
 function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-h" className="scroll-mt-16 lg:scroll-mt-24">
+      <div className="flex flex-col-reverse gap-10 sm:flex-row sm:items-end sm:justify-between">
+      <div>
       <h2 id="contact-h" className="text-[clamp(1.75rem,3vw,2.5rem)] leading-tight tracking-[-0.03em] text-head">
         <span className="font-extralight">Have a role or a product</span> <span className="font-semibold">in mind?</span>
       </h2>
@@ -500,6 +503,9 @@ function Contact() {
         {EMAIL}
         <Icon name="arrow" className="size-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
       </a>
+      </div>
+      <img src={portraitNight} alt="Ouzy Maulana on a rooftop at night, city skyline behind" width="720" height="960" loading="lazy" decoding="async" className="w-44 shrink-0 rounded-md border border-line object-cover sm:w-52" />
+      </div>
       <p className="mt-24 max-w-md pb-16 text-sm text-dim lg:pb-0">
         © {new Date().getFullYear()} Ouzy Maulana · Tangerang Selatan, Indonesia
       </p>
