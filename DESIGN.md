@@ -214,7 +214,7 @@ The fixed left half. Name (display), role line, gold stack line, status line wit
 Desktop only. Each item is a 6px dot plus a body-small label. Inactive: dot dim at 50% scale, label dim. Hover: dot scales to 100%, label to head. Active (scroll-spied): dot gold at 100%, label head, aria-current set. Dot transition 300ms.
 
 ### Featured screen
-Opens the main column: a real product screen in a 6px-radius white plate with a hairline border, 16:10, cropped top-left. The whole plate is a button that opens the lightbox. Hover: border turns gold, image scales to 1.02 over 700ms on the expo ease-out. The caption below pairs a small-text line with a gold mono count.
+Opens the main column: a real product screen in a 6px-radius white plate with a hairline border, 16:10, cropped top-left. The whole plate is a button that opens the lightbox. Hover: border turns gold, image scales to 1.02 over 700ms on the expo ease-out. The caption below pairs a small-text line with a gold mono "View all screens" link marker (no screen count, at the owner's request).
 
 ### Experience card
 Content block with a 1px hairline left rule and 20px inset. Rule turns gold on hover (300ms). Date in a dim mono label column, then title (role · company, the company an external link with a 14px arrow that nudges up-right on hover), body-small summary, highlights, stack line, thumbs.
