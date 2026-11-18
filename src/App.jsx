@@ -150,15 +150,27 @@ function Icon({ name, className = "size-5" }) {
 
 const SECTIONS = [["about", "About"], ["experience", "Experience"], ["projects", "Projects"], ["contact", "Contact"]];
 
+// Active = the last section whose top has passed 35% of the viewport.
+// At the very bottom the last section wins, since a short final section can never reach that line.
 function useActiveSection() {
   const [active, setActive] = useState("about");
   useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
-      { rootMargin: "-35% 0px -60% 0px" }
-    );
-    SECTIONS.forEach(([id]) => { const el = document.getElementById(id); if (el) io.observe(el); });
-    return () => io.disconnect();
+    const update = () => {
+      const atBottom = innerHeight + scrollY >= document.documentElement.scrollHeight - 2;
+      let current = SECTIONS[0][0];
+      for (const [id] of SECTIONS) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= innerHeight * 0.35) current = id;
+      }
+      setActive(atBottom ? SECTIONS[SECTIONS.length - 1][0] : current);
+    };
+    update();
+    addEventListener("scroll", update, { passive: true });
+    addEventListener("resize", update);
+    return () => {
+      removeEventListener("scroll", update);
+      removeEventListener("resize", update);
+    };
   }, []);
   return active;
 }
