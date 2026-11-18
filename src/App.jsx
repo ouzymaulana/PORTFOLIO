@@ -194,7 +194,7 @@ function Lightbox({ gallery, onClose }) {
       onClick={(e) => e.target === ref.current && ref.current.close()}
       onKeyDown={(e) => { if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1); }}
       aria-label={`${label} screens`}
-      className="m-auto w-[min(1200px,94vw)] max-w-none bg-transparent p-0 text-body"
+      className="mx-auto mt-[5vh] mb-auto w-[min(1200px,94vw)] max-w-none bg-transparent p-0 text-body select-none"
     >
       <div className="flex items-center justify-between gap-4 pb-3">
         <p className="font-mono text-sm text-dim tabular-nums">{label} · {i + 1} / {n}</p>
@@ -204,8 +204,9 @@ function Lightbox({ gallery, onClose }) {
           <button type="button" className={ctl} onClick={() => ref.current.close()} aria-label="Close gallery" autoFocus><Icon name="close" /></button>
         </div>
       </div>
-      <div className="max-h-[78vh] overflow-auto overscroll-contain rounded-md border border-line bg-white">
-        <img key={src} src={src} alt={caption} width={w} height={h} className={tall ? "w-full" : "mx-auto max-h-[78vh] w-auto object-contain"} />
+      {/* Fixed-height stage: controls never move when screens of different heights swap in. */}
+      <div className={`h-[min(76vh,760px)] rounded-md border border-line max-sm:h-auto max-sm:max-h-[62vh] ${tall ? "overflow-y-auto overscroll-contain bg-white" : "overflow-hidden bg-night"}`}>
+        <img key={src} src={src} alt={caption} width={w} height={h} className={tall ? "w-full" : "size-full object-contain"} />
       </div>
       <p className="mt-3 text-head">{caption}</p>
     </dialog>

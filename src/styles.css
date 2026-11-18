@@ -26,6 +26,9 @@
     overflow-x: clip;
   }
   ::selection { background: var(--color-gold); color: var(--color-night); }
+  /* Screens and photos never take the text-selection tint (double-clicks on gallery controls used to select them). */
+  img { user-select: none; -webkit-user-drag: none; }
+  img::selection { background: transparent; }
   :focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: 4px; }
   h1, h2, h3 { text-wrap: balance; }
   p { text-wrap: pretty; }
