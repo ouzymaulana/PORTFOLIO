@@ -121,7 +121,7 @@ const STACK = [
 ];
 
 const EDUCATION = [
-  ["Binus University", "S1 Computer Science", "2024–Now"],
+  ["Binus University", "S1 Computer Science · thesis complete, awaiting graduation", "2024–2026"],
   ["Binar Academy", "Front End Engineering", "2023–2024"],
   ["Politeknik Aceh", "D3 Information Technology", "2019–2022"],
 ];
@@ -370,7 +370,7 @@ function About({ openGallery }) {
             PIN security and end-of-day reconciliation reports. Before that I spent almost two years at BNI Sekuritas working on modules
             of a micro-frontend platform in React and Angular, including Host to Host BNI.
           </p>
-          <p>Alongside work, I'm studying Computer Science at Binus University.</p>
+          <p>Alongside work, I completed a Computer Science degree at Binus University. The thesis is done and graduation is scheduled for late 2026.</p>
         </div>
         <img src={portrait} alt="Ouzy Maulana wearing a batik shirt" width="720" height="1008" loading="lazy" className="w-40 rounded-md border border-line object-cover sm:w-full" />
       </div>

@@ -31,7 +31,7 @@ Work history (from CV, Sep 2026):
 - Frontend Engineer intern, PT. Solusi Pembayaran Elektronik — Feb–Aug 2023. React, Next.js, Express, JWT, Figma.
 - Software Engineer intern, PT. Solusi Pembayaran Elektronik — Feb–Jul 2021. PHP, CodeIgniter, MySQL, e-commerce.
 
-Education: Binus University, S1 Computer Science (2024–present); Politeknik Aceh, D3 Information Technology (2019–2022); Binar Academy, Front End Engineering (2023–2024).
+Education: Binus University, S1 Computer Science (2024–2026; coursework and thesis finished, awaiting yudisium expected late Nov / early Dec 2026, per the user on 2026-11-18); Politeknik Aceh, D3 Information Technology (2019–2022); Binar Academy, Front End Engineering (2023–2024).
 
 Skills: HTML/CSS, Sass, JavaScript, TypeScript, React, Angular, Next.js, SvelteKit, Express, PHP, Node, SQL, Laravel, CodeIgniter, REST APIs. Tools: Figma, Postman, Git/GitHub/GitLab, Tailwind, Material UI, Bootstrap, Redux, Zustand, JWT, Jira.
 
