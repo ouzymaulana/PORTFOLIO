@@ -31,6 +31,7 @@
     scrollbar-color: var(--color-rule) var(--color-paper);
   }
   body {
+    overflow-x: clip;
     @apply bg-paper text-ink font-sans antialiased;
     font-optical-sizing: auto;
     font-size: 1.0625rem;
@@ -54,4 +55,42 @@
   text-underline-offset: 0.3em;
   transition: text-decoration-color 0.25s, color 0.25s;
   &:hover { text-decoration-color: currentColor; color: var(--color-accent); }
+}
+
+/* Scroll-driven motion. Without view timelines (or with reduced motion) everything renders in its final state. */
+@keyframes reveal {
+  from { opacity: 0; translate: 0 1.5rem; }
+}
+@keyframes rule-draw {
+  from { transform: scaleX(0); }
+}
+
+/* Ledger rows: the hairline under each row draws left to right as it enters. */
+.ruled {
+  position: relative;
+  view-timeline-name: --row;
+}
+.ruled::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--color-rule);
+  transform-origin: left;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 45%;
+    }
+    .ruled::after {
+      animation: rule-draw linear both;
+      animation-timeline: --row;
+      animation-range: entry 100% cover 35%;
+    }
+  }
 }

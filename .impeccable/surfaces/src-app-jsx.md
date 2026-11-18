@@ -23,9 +23,9 @@ FIRST VIEWPORT: Thin header (name left, three nav links right). A 12-column grid
 
 FORM: user-pinned light editorial (seed c33cb2ee superseded by the pin). Signature moment: the display statement sets in line by line on load (a short rise and fade, from a visible default), and the role index rules draw left to right. Reduced motion renders the final state.
 
-ADAPTATIONS: Placeholder screenshots for the employer apps are not rendered. A role shows a screenshot only when `shot` is set.
+ADAPTATIONS: Employer app screens (Beyondtech, BNI Sekuritas) ship in a per-role horizontal scroll-snap carousel that bleeds to the viewport edge, with square prev/next controls; the Beyondtech landing page sits in a 16:10 frame that scrolls vertically from sm up and is a static top crop on mobile (user asked for swipeable galleries, 2026-11-18). Shipped lists show three rows and disclose the rest with "Show all N". Motion beyond the hero: ledger hairlines draw left to right on scroll (view timeline), and the carousel fades in once. Contact details and customer/account IDs in screenshots are blurred.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
 ## Open
-- Real screenshots of the Beyondtech and BNI Sekuritas apps (user has them; check NDA).
+- None.

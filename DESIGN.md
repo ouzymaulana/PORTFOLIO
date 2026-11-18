@@ -132,6 +132,25 @@ components:
     padding: "1rem 0"
   project-plate:
     backgroundColor: "{colors.plate}"
+  carousel-control:
+    textColor: "{colors.ink}"
+    rounded: "{rounded.button}"
+    size: "2.75rem"
+  carousel-control-hover:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+  carousel-slide:
+    backgroundColor: "{colors.plate}"
+    height: "clamp(210px, 28vw, 400px)"
+  carousel-caption:
+    textColor: "{colors.graphite}"
+    typography: "{typography.body-sm}"
+  disclosure-toggle:
+    textColor: "{colors.graphite}"
+    typography: "{typography.body-sm}"
+    height: "2.75rem"
+  disclosure-toggle-hover:
+    textColor: "{colors.accent}"
 ---
 
 # Design System: Ouzy Maulana
@@ -144,7 +163,7 @@ The page reads like a well-set professional record: a cool stone-white sheet, ne
 
 Density is low and deliberate. Structure is carried by a 12-column grid, sticky section titles in the left three columns, and horizontal rules; there are no cards, panels, shadows, pills or tinted fills. Colour is almost absent: one deep ink-blue appears only as a response to interaction (hover, focus). The portrait and project screenshots are shown natural, untreated.
 
-Motion is a single quiet signature: on load the hero lines rise and fade in with a staggered expo ease, and the career-index rules draw left to right. Reduced motion renders the final state with no animation. The world explicitly refuses both the dark-mode developer template and the cream-ground, italic-serif, terracotta editorial default.
+Motion is a quiet signature built from one gesture, the hairline drawing left to right. On load the hero lines rise and fade in with a staggered expo ease and the career-index rules draw; further down, each ledger row's hairline draws as it scrolls into view, and each screen carousel fades up once. Scroll-driven motion only runs where view timelines are supported; reduced motion renders every final state with no animation. The world explicitly refuses both the dark-mode developer template and the cream-ground, italic-serif, terracotta editorial default.
 
 **Key Characteristics:**
 - Cool stone-white ground, near-black ink, graphite and quiet greys for secondary text.
@@ -152,7 +171,7 @@ Motion is a single quiet signature: on load the hero lines rise and fade in with
 - Hairline rules and whitespace instead of containers.
 - One accent, ink-blue, reserved for interaction states.
 - Tabular numerals for every date and year.
-- Load-in rise and rule-draw as the only signature motion.
+- Rule-draw (on load in the hero, on scroll in ledgers), the hero rise and one carousel fade as the only signature motion.
 
 ## Colors
 
@@ -208,7 +227,7 @@ A near-monochrome stone-and-ink palette with a single cold blue that only appear
 
 A centred container capped at 1360px with side padding of 1.25rem, 2rem from 640px, and 3rem from 1024px. Inside it, a single column on small screens becomes a 12-column grid at 1024px with a 2rem column gutter. Sections open with 6rem of top space, 8rem from 640px and 10rem from 1024px; the contact footer opens wider (8rem, then 11rem).
 
-Each section puts its headline in columns 1 to 3 (sticky at 6rem from the top on large screens) and its content in columns 4 to 12. The hero splits 7 columns of text against a 4-column portrait starting at column 9, with the career index spanning the full width beneath. Lists and ledgers use fixed label columns (13rem in Experience, 9rem in Stack) beside a fluid value column, collapsing to stacked rows on small screens. Projects run as a two-column grid from 640px with the first project spanning both.
+Each section puts its headline in columns 1 to 3 (sticky at 6rem from the top on large screens) and its content in columns 4 to 12. The hero splits 7 columns of text against a 4-column portrait starting at column 9, with the career index spanning the full width beneath. Lists and ledgers use fixed label columns (13rem in Experience, 9rem in Stack) beside a fluid value column, collapsing to stacked rows on small screens. Projects run as a two-column grid from 640px with the first project spanning both. Screen carousels are the one element allowed past the container: their track bleeds to the right viewport edge (cancelling the page padding, and at 1024px up the full gutter outside the 1360px container), while the first slide stays aligned to the content column. The body clips horizontal overflow (`overflow-x: clip`) so the bleed never creates page-level sideways scroll.
 
 Row rhythm is 1rem vertical padding for ledger rows and 1.25rem for index and earlier-role rows. The sticky header is 4rem tall; in-page anchors scroll with 5rem of top padding. All interactive targets are at least 2.75rem tall (3rem for the primary button).
 
@@ -221,7 +240,7 @@ The system is completely flat. There are no shadows anywhere; depth comes only f
 
 ## Shapes
 
-Square by default. The only radii are a barely-softened 3px on the primary button and 2px on the focus outline. Images, plates and rows have hard corners. Arrows are a thin 1.75-stroke line icon at 0.8em, used after outbound and action links.
+Square by default. The only radii are a barely-softened 3px on the primary button and the carousel controls, and 2px on the focus outline. Images, plates, slides and rows have hard corners. The carousel's previous/next controls are 44px squares (2.75rem) with that 3px radius and a 1px Hairline border. Icons are thin 1.75-stroke line drawings: the arrow at 0.8em after outbound and action links, and a 16px chevron in the carousel controls and the disclosure toggle.
 
 ## Components
 
@@ -229,7 +248,7 @@ Square by default. The only radii are a barely-softened 3px on the primary butto
 Quiet and solid; there is one.
 - **Shape:** Barely softened corners (3px).
 - **Primary:** Ink fill with Stone Paper label, 1.5rem horizontal padding, 3rem minimum height, label followed by the arrow icon; full width below 640px.
-- **Hover / Focus:** Fill shifts to Ink Blue over 200ms; presses down 1px when active; 2px Ink Blue focus outline at 3px offset.
+- **Hover / Focus:** Fill shifts to Ink Blue over 200ms; presses down 1px when active; 2px Ink Blue focus outline at 3px offset. On hover the trailing arrow nudges 2px up and right over 300ms.
 
 ### Text Links
 - **Style:** Underlined in Hairline at 1px thickness with 0.3em offset; text in the inherited colour.
@@ -240,13 +259,24 @@ Quiet and solid; there is one.
 - **Style:** Sticky 4rem header on Stone Paper with a Hairline bottom border. Name at left in Body Small medium; three section links at right in Body Small Graphite, turning Ink on hover. Same layout on mobile with tighter link padding.
 
 ### Career Index
-The hero's signature: a full-width ordered list of employer rows, each opened by a Hairline that draws from left to right on load (1.1s expo ease, staggered 120ms per row). Company in Index type, role in Graphite (hidden below 640px), years right-aligned in tabular Graphite. The company turns Ink Blue on row hover.
+The hero's signature: a full-width ordered list of employer rows, each opened by a Hairline that draws from left to right on load (1.1s expo ease, staggered 120ms per row). Company in Index type, role in Graphite (hidden below 640px), years right-aligned in tabular Graphite. On row hover the company turns Ink Blue and an Ink Blue arrow (rotated 45 degrees to point right) slides in after the years: absolutely positioned and out of flow, so it never shifts the grid, fading from 0 and moving 4px over 300ms; hidden below 640px.
 
 ### Ledger
-Definition lists and lists bounded by a top Hairline, with a Hairline under every row. Term in medium Body Ink, value in Graphite, in a fixed-width label column beside a fluid column.
+Definition lists and lists bounded by a top Hairline, with a Hairline under every row. Term in medium Body Ink, value in Graphite, in a fixed-width label column beside a fluid column. Each row's bottom Hairline is drawn as a pseudo-element so it can draw left to right (scaleX from 0, origin left, linear so scroll sets the pace) on the row's own view timeline, from the moment the row has fully entered until it covers 35% of the viewport (entry 100% to cover 35%), so the line draws while the row sits in the lower third. Without view-timeline support, or under reduced motion, the rule is simply present.
 
 ### Project Plate
 Screenshot on the white plate inside a 1px Hairline border, clipped, at the capture's own aspect ratio. On hover the image scales to 1.02 over 700ms with the expo ease. Below: Title Small name, Graphite description, Label stack in Quiet Grey, and source links.
+
+### Screen Carousel
+Employer app screens, one carousel per role, sitting above that role's shipped list. A horizontal scroll-snap track (mandatory, snapping to slide start, 1.25rem gap, thin Hairline scrollbar) that bleeds to the viewport edge (see Layout). Native scroll does the work; the two square controls only nudge it by 80% of the track width and dim to 30% at either end. Controls are Ink chevrons on Stone Paper with a Hairline border, filling Ink with a Stone Paper chevron on hover (never Ink Blue at rest or as a fill).
+- **Slides:** each screenshot on the white plate in a 1px Hairline frame, height clamp(210px, 28vw, 400px), width from the capture's own aspect ratio, capped at 84vw; cropped from the top left, zooming to 1.02 on hover over 700ms expo.
+- **Header line:** above the track, left, in Label Quiet Grey: "N screens · note", where the note states the environment and what was blurred.
+- **Captions:** Body Small Graphite under each slide, wrapping to the slide width.
+- **Landing slide:** a full-length page capture shown in a 16:10 frame that scrolls vertically from 640px up (focusable, with a Quiet Grey hint "Scroll the frame to see the full page."); below 640px it is a static top crop.
+- **Motion:** the whole carousel fades up 1.5rem once as it enters the viewport (view timeline, entry 5% to 45%); the only reveal on the page.
+
+### Disclosure
+For long shipped lists: the first three ledger rows always show, the rest sit in a collapsed grid row (0fr to 1fr over 500ms expo) that is `inert` while closed. The toggle is a Body Small Graphite text button, 2.75rem tall, reading "Show all N" or "Show less", followed by a chevron rotated down or up; it turns Ink Blue on hover and carries `aria-expanded`.
 
 ## Do's and Don'ts
 
@@ -255,8 +285,9 @@ Screenshot on the white plate inside a 1px Hairline border, clipped, at the capt
 - **Do** keep Ink Blue (#2b3a8c) for hover and focus states only.
 - **Do** set large type light (300 to 350) with negative tracking, and let the opsz axis run automatically.
 - **Do** set every date and year in tabular numerals.
-- **Do** keep the motion to the hero rise (0.9s) and rule draw (1.1s) on cubic-bezier(0.16, 1, 0.3, 1), and render the final state under reduced motion.
+- **Do** keep the motion to the hero rise (0.9s), the hero rule draw (1.1s), the scroll-driven ledger rule draw and the single carousel fade, all on cubic-bezier(0.16, 1, 0.3, 1) (the fade is linear on its timeline); gate scroll-driven motion behind view-timeline support and render the final state under reduced motion.
 - **Do** show photos and screenshots natural, with no filters or overlays.
+- **Do** blur contact details and customer or account IDs in every screenshot before it ships, and say so in the carousel's note.
 
 ### Don't:
 - **Don't** use box shadows, cards, tinted panels or pill shapes.

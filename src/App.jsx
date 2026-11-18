@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import portrait from "./img/ouzy.jpg";
 import foodieOrder from "./img/foodieOrder.jpg";
 import ecommerce from "./img/e-commerce.jpg";
@@ -43,7 +44,7 @@ const ROLES = [
       [btEod, "Internal backoffice: end-of-day schedule for a disbursement channel", 1600, 1196],
       [btSales, "Internal backoffice: sales report with export", 1600, 1200, true],
     ],
-    screensNote: "Screens from the staging environment with demo data. Contact details are blurred.",
+    screensNote: "From the staging environment with demo data; contact details blurred.",
     shipped: [
       ["Authentication", "End-to-end flow: registration, email verification and password recovery."],
       ["Merchant onboarding", "Streamlined first-time registration for new merchants."],
@@ -69,7 +70,7 @@ const ROLES = [
       [bnisH2h, "Host to Host BNI v2: generating RDI opening accounts", 1600, 787],
       [bnisModules, "The internal platform's module launcher, with role-based access per module", 1600, 786],
     ],
-    screensNote: "Screens from the development environment. Customer and account IDs are blurred.",
+    screensNote: "From the development environment; customer and account IDs blurred.",
     shipped: [
       ["Micro frontends", "React, Angular and TypeScript apps on a Webpack-based micro-frontend architecture, built for scalability and maintainability."],
       ["Host to Host", "Worked on the Host to Host BNI module, which covers RDI account opening, overbooking, clearing, RTGS and account inquiry."],
@@ -135,6 +136,120 @@ function Arrow({ className = "" }) {
   );
 }
 
+function Chevron({ left }) {
+  return (
+    <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d={left ? "m15 6-6 6 6 6" : "m9 6 6 6-6 6"} />
+    </svg>
+  );
+}
+
+// Horizontal, scroll-snapping screen gallery. Native scroll does the work; the buttons only nudge it.
+function Carousel({ screens, label, note }) {
+  const track = useRef(null);
+  const [edge, setEdge] = useState({ start: true, end: false });
+
+  const update = () => {
+    const el = track.current;
+    if (!el) return;
+    setEdge({ start: el.scrollLeft < 8, end: el.scrollLeft + el.clientWidth > el.scrollWidth - 8 });
+  };
+  useEffect(() => {
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const nudge = (dir) => track.current?.scrollBy({ left: dir * track.current.clientWidth * 0.8, behavior: "smooth" });
+  const btn =
+    "grid size-11 place-items-center rounded-[3px] border border-rule text-ink transition-[background-color,border-color,opacity] duration-200 hover:border-ink hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-30";
+
+  return (
+    <div className="reveal mt-10">
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <p className="text-sm text-quiet">{screens.length} screens · {note}</p>
+        <div className="flex shrink-0 gap-2">
+          <button type="button" className={btn} onClick={() => nudge(-1)} disabled={edge.start} aria-label={`Previous ${label} screens`}>
+            <Chevron left />
+          </button>
+          <button type="button" className={btn} onClick={() => nudge(1)} disabled={edge.end} aria-label={`Next ${label} screens`}>
+            <Chevron />
+          </button>
+        </div>
+      </div>
+      <div
+        ref={track}
+        onScroll={update}
+        tabIndex={0}
+        role="region"
+        aria-label={`${label} screens, scroll horizontally`}
+        className="-mr-5 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pr-5 pb-5 [scrollbar-color:var(--color-rule)_transparent] [scrollbar-width:thin] sm:-mr-8 sm:pr-8 lg:-mr-[max(3rem,calc((100vw-1360px)/2+3rem))] lg:pr-[max(3rem,calc((100vw-1360px)/2+3rem))]"
+      >
+        {screens.map(([src, caption, w, h, , scroll]) => (
+          <figure key={caption} className="flex shrink-0 snap-start flex-col">
+            <div
+              className={`group h-[clamp(210px,28vw,400px)] max-w-[84vw] border border-rule bg-plate ${scroll ? "overflow-hidden sm:overflow-y-auto sm:overscroll-contain" : "overflow-hidden"}`}
+              style={{ aspectRatio: scroll ? "16 / 10" : `${w} / ${h}` }}
+              {...(scroll && { tabIndex: 0, role: "region", "aria-label": `${caption} (scroll vertically)` })}
+            >
+              <img
+                src={src}
+                alt={caption}
+                width={w}
+                height={h}
+                loading="lazy"
+                decoding="async"
+                className={scroll ? "w-full" : "size-full object-cover object-left-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.02]"}
+              />
+            </div>
+            <figcaption className="mt-3 w-0 min-w-full text-[0.95rem] text-graphite">
+              {caption}
+              {scroll && <span className="text-quiet max-sm:hidden"> Scroll the frame to see the full page.</span>}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// First three items always visible; the rest expand in place.
+function ShippedList({ items }) {
+  const [open, setOpen] = useState(false);
+  const head = items.slice(0, 3);
+  const rest = items.slice(3);
+  const Row = ([k, v]) => (
+    <div key={k} className="ruled grid gap-x-8 gap-y-1 py-4 sm:grid-cols-[13rem_1fr]">
+      <dt className="font-medium">{k}</dt>
+      <dd className="max-w-[60ch] text-graphite">{v}</dd>
+    </div>
+  );
+  return (
+    <div className="mt-10">
+      <dl className="border-t border-rule">{head.map(Row)}</dl>
+      {rest.length > 0 && (
+        <>
+          <div
+            className={`grid transition-[grid-template-rows] duration-500 ease-out-expo ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+            inert={open ? undefined : ""}
+          >
+            <dl className="overflow-hidden">{rest.map(Row)}</dl>
+          </div>
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            className="group mt-4 inline-flex min-h-11 items-center gap-2 text-[0.95rem] text-graphite transition-colors hover:text-accent"
+          >
+            {open ? "Show less" : `Show all ${items.length}`}
+            <span className={`transition-transform duration-300 ${open ? "-rotate-90" : "rotate-90"}`}><Chevron /></span>
+          </button>
+        </>
+      )}
+    </div>
+  );
+}
+
 const wrap = "mx-auto max-w-[1360px] px-5 sm:px-8 lg:px-12";
 const grid = "grid grid-cols-1 gap-x-8 lg:grid-cols-12";
 
@@ -188,9 +303,9 @@ function Hero() {
           <div className="mt-10 flex animate-rise flex-wrap items-center gap-x-7 gap-y-3 [animation-delay:340ms]">
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] bg-ink px-6 max-sm:w-full text-paper transition-[background-color,transform] duration-200 hover:bg-accent active:translate-y-px"
+              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] bg-ink px-6 max-sm:w-full text-paper transition-[background-color,transform] duration-200 hover:bg-accent active:translate-y-px"
             >
-              Email me <Arrow />
+              Email me <Arrow className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="link inline-flex min-h-11 items-center gap-1.5">LinkedIn <Arrow /></a>
             <a href={LINKS.github} target="_blank" rel="noreferrer" className="link inline-flex min-h-11 items-center gap-1.5">GitHub <Arrow /></a>
@@ -221,7 +336,12 @@ function Hero() {
               <a href={href} className="group grid grid-cols-[1fr_auto] gap-x-6 py-5 sm:grid-cols-12 sm:gap-x-8">
                 <span className="text-[1.125rem] font-medium tracking-[-0.01em] transition-colors group-hover:text-accent sm:col-span-5">{company}</span>
                 <span className="hidden text-graphite sm:col-span-4 sm:block">{role}</span>
-                <span className="text-right text-graphite tabular-nums sm:col-span-3">{years}</span>
+                <span className="relative text-right text-graphite tabular-nums sm:col-span-3">
+                  {years}
+                  <span className="absolute top-1/2 left-full ml-3 -translate-x-1 -translate-y-1/2 text-accent opacity-0 transition-[opacity,translate] duration-300 group-hover:translate-x-0 group-hover:opacity-100 max-sm:hidden" aria-hidden="true">
+                    <Arrow className="rotate-45" />
+                  </span>
+                </span>
               </a>
             </li>
           )
@@ -243,7 +363,7 @@ function Experience() {
               <p className="text-graphite tabular-nums">{r.period}</p>
             </header>
             <p className="mt-2 text-graphite">
-              {r.role} · {r.legal} · {r.place}
+              {r.role} · {r.legal} <span className="whitespace-nowrap">· {r.place}</span>
               {r.site && (
                 <>
                   {" · "}
@@ -254,35 +374,8 @@ function Experience() {
               )}
             </p>
             <p className="mt-6 max-w-[58ch] text-[1.1875rem] leading-relaxed">{r.summary}</p>
-            {r.screens.length > 0 && (
-              <div className="mt-10">
-                <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2">
-                  {r.screens.map(([src, caption, w, h, wide, scroll]) => (
-                    <figure key={caption} className={wide ? "sm:col-span-2" : ""}>
-                      <div
-                        className={`border border-rule bg-plate ${scroll ? "max-h-[min(78vh,760px)] overflow-y-auto overscroll-contain" : "overflow-hidden"}`}
-                        {...(scroll && { tabIndex: 0, role: "region", "aria-label": `${caption} (scrollable)` })}
-                      >
-                        <img src={src} alt={caption} width={w} height={h} loading="lazy" decoding="async" className="w-full" />
-                      </div>
-                      <figcaption className="mt-3 max-w-[48ch] text-[0.95rem] text-graphite">
-                        {caption}
-                        {scroll && <span className="max-sm:hidden"> Scroll inside the frame to see the full page.</span>}
-                      </figcaption>
-                    </figure>
-                  ))}
-                </div>
-                <p className="mt-8 text-sm text-quiet">{r.screensNote}</p>
-              </div>
-            )}
-            <dl className="mt-10 border-t border-rule">
-              {r.shipped.map(([k, v]) => (
-                <div key={k} className="grid gap-x-8 gap-y-1 border-b border-rule py-4 sm:grid-cols-[13rem_1fr]">
-                  <dt className="font-medium">{k}</dt>
-                  <dd className="max-w-[60ch] text-graphite">{v}</dd>
-                </div>
-              ))}
-            </dl>
+            {r.screens.length > 0 && <Carousel screens={r.screens} label={r.company} note={r.screensNote} />}
+            <ShippedList items={r.shipped} />
             <p className="mt-5 text-sm text-quiet">{r.stack.join(" · ")}</p>
           </article>
         ))}
@@ -291,7 +384,7 @@ function Experience() {
           <h3 className="mb-6 text-sm font-medium text-quiet">Earlier</h3>
           <ul className="border-t border-rule">
             {EARLIER.map(([role, company, year, note]) => (
-              <li key={year} className="grid gap-x-8 gap-y-1 border-b border-rule py-5 sm:grid-cols-[13rem_1fr_auto]">
+              <li key={year} className="ruled grid gap-x-8 gap-y-1 py-5 sm:grid-cols-[13rem_1fr_auto]">
                 <span className="font-medium">{role}</span>
                 <span className="text-graphite">
                   {company}
@@ -357,7 +450,7 @@ function Background() {
           <h3 className="mb-4 text-sm font-medium text-quiet">Stack</h3>
           <dl className="border-t border-rule">
             {STACK.map(([k, v]) => (
-              <div key={k} className="grid gap-x-8 gap-y-1 border-b border-rule py-4 sm:grid-cols-[9rem_1fr]">
+              <div key={k} className="ruled grid gap-x-8 gap-y-1 py-4 sm:grid-cols-[9rem_1fr]">
                 <dt className="font-medium">{k}</dt>
                 <dd className="text-graphite">{v}</dd>
               </div>
@@ -368,7 +461,7 @@ function Background() {
           <h3 className="mb-4 text-sm font-medium text-quiet">Education</h3>
           <ul className="border-t border-rule">
             {EDUCATION.map(([school, prog, years]) => (
-              <li key={school} className="grid grid-cols-[1fr_auto] gap-x-6 border-b border-rule py-4">
+              <li key={school} className="ruled grid grid-cols-[1fr_auto] gap-x-6 py-4">
                 <span className="font-medium">{school}</span>
                 <span className="text-graphite tabular-nums">{years}</span>
                 <span className="text-graphite">{prog}</span>
