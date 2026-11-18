@@ -13,6 +13,8 @@ import btEod from "./img/beyondtech/eod-schedule.jpg";
 import btSales from "./img/beyondtech/sales-report.jpg";
 import bnisH2h from "./img/bnis/host-to-host.jpg";
 import bnisModules from "./img/bnis/module-launcher.jpg";
+import batikStrip from "./img/batik-strip.jpg";
+import batikBand from "./img/batik-band.jpg";
 
 const EMAIL = "ouzymaulana@gmail.com";
 const LINKS = {
@@ -126,390 +128,410 @@ const EDUCATION = [
 
 /* ---------- pieces ---------- */
 
-function Arrow({ className = "" }) {
+const PATHS = {
+  arrow: <><path d="M7 17 17 7" /><path d="M8 7h9v9" /></>,
+  mail: <><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></>,
+  github: <><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></>,
+  linkedin: <><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></>,
+  instagram: <><rect width="20" height="20" x="2" y="2" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><path d="M17.5 6.5h.01" /></>,
+  left: <path d="m15 6-6 6 6 6" />,
+  right: <path d="m9 6 6 6-6 6" />,
+  close: <><path d="M18 6 6 18" /><path d="m6 6 12 12" /></>,
+  expand: <><path d="M15 3h6v6" /><path d="M9 21H3v-6" /><path d="M21 3l-7 7" /><path d="M3 21l7-7" /></>,
+};
+
+function Icon({ name, className = "size-5" }) {
   return (
-    <svg className={`size-[0.8em] ${className}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M7 17 17 7" /><path d="M8 7h9v9" />
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {PATHS[name]}
     </svg>
   );
 }
 
-function Chevron({ left }) {
-  return (
-    <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d={left ? "m15 6-6 6 6 6" : "m9 6 6 6-6 6"} />
-    </svg>
-  );
-}
+const SECTIONS = [["about", "About"], ["experience", "Experience"], ["projects", "Projects"], ["contact", "Contact"]];
 
-// Horizontal, scroll-snapping screen gallery. Native scroll does the work; the buttons only nudge it.
-function Carousel({ screens, label }) {
-  const track = useRef(null);
-  const [edge, setEdge] = useState({ start: true, end: false });
-
-  const update = () => {
-    const el = track.current;
-    if (!el) return;
-    setEdge({ start: el.scrollLeft < 8, end: el.scrollLeft + el.clientWidth > el.scrollWidth - 8 });
-  };
+function useActiveSection() {
+  const [active, setActive] = useState("about");
   useEffect(() => {
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-35% 0px -60% 0px" }
+    );
+    SECTIONS.forEach(([id]) => { const el = document.getElementById(id); if (el) io.observe(el); });
+    return () => io.disconnect();
   }, []);
+  return active;
+}
 
-  const nudge = (dir) => track.current?.scrollBy({ left: dir * track.current.clientWidth * 0.8, behavior: "smooth" });
-  const btn =
-    "grid size-11 place-items-center rounded-[3px] border border-rule text-ink transition-[background-color,border-color,opacity] duration-200 hover:border-ink hover:bg-ink hover:text-paper disabled:pointer-events-none disabled:opacity-30";
-
+function Pills({ items }) {
   return (
-    <div className="reveal mt-10">
-      <div className="mb-4 flex justify-end">
-        <div className="flex shrink-0 gap-2">
-          <button type="button" className={btn} onClick={() => nudge(-1)} disabled={edge.start} aria-label={`Previous ${label} screens`}>
-            <Chevron left />
-          </button>
-          <button type="button" className={btn} onClick={() => nudge(1)} disabled={edge.end} aria-label={`Next ${label} screens`}>
-            <Chevron />
-          </button>
+    <p className="mt-4 font-mono text-xs leading-6 text-gold">
+      <span className="sr-only">Technologies: </span>
+      {items.join(" / ")}
+    </p>
+  );
+}
+
+/* Native <dialog> gallery: focus is trapped by the browser, Esc closes, arrows step. */
+function Lightbox({ gallery, onClose }) {
+  const ref = useRef(null);
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (!gallery) return;
+    setI(gallery.index);
+    if (!ref.current.open) ref.current.showModal();
+  }, [gallery]);
+  if (!gallery) return <dialog ref={ref} onClose={onClose} />;
+  const { screens, label } = gallery;
+  const n = screens.length;
+  const [src, caption, w, h, , tall] = screens[i];
+  const go = (d) => setI((i + d + n) % n);
+  const ctl = "grid size-11 place-items-center rounded-md border border-line text-head transition-colors hover:border-gold hover:text-gold";
+  return (
+    <dialog
+      ref={ref}
+      onClose={onClose}
+      onClick={(e) => e.target === ref.current && ref.current.close()}
+      onKeyDown={(e) => { if (e.key === "ArrowRight") go(1); if (e.key === "ArrowLeft") go(-1); }}
+      aria-label={`${label} screens`}
+      className="m-auto w-[min(1200px,94vw)] max-w-none bg-transparent p-0 text-body"
+    >
+      <div className="flex items-center justify-between gap-4 pb-3">
+        <p className="font-mono text-sm text-dim tabular-nums">{label} · {i + 1} / {n}</p>
+        <div className="flex gap-2">
+          <button type="button" className={ctl} onClick={() => go(-1)} aria-label="Previous screen"><Icon name="left" /></button>
+          <button type="button" className={ctl} onClick={() => go(1)} aria-label="Next screen"><Icon name="right" /></button>
+          <button type="button" className={ctl} onClick={() => ref.current.close()} aria-label="Close gallery" autoFocus><Icon name="close" /></button>
         </div>
       </div>
-      <div
-        ref={track}
-        onScroll={update}
-        tabIndex={0}
-        role="region"
-        aria-label={`${label} screens, scroll horizontally`}
-        className="-mr-5 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pr-5 pb-5 [scrollbar-color:var(--color-rule)_transparent] [scrollbar-width:thin] sm:-mr-8 sm:pr-8 lg:-mr-[max(3rem,calc((100vw-1360px)/2+3rem))] lg:pr-[max(3rem,calc((100vw-1360px)/2+3rem))]"
-      >
-        {screens.map(([src, caption, w, h, , scroll]) => (
-          <figure key={caption} className="flex shrink-0 snap-start flex-col">
-            <div
-              className={`group h-[clamp(210px,28vw,400px)] max-w-[84vw] border border-rule bg-plate ${scroll ? "overflow-hidden sm:overflow-y-auto sm:overscroll-contain" : "overflow-hidden"}`}
-              style={{ aspectRatio: scroll ? "16 / 10" : `${w} / ${h}` }}
-              {...(scroll && { tabIndex: 0, role: "region", "aria-label": `${caption} (scroll vertically)` })}
+      <div className="max-h-[78vh] overflow-auto overscroll-contain rounded-md border border-line bg-white">
+        <img key={src} src={src} alt={caption} width={w} height={h} className={tall ? "w-full" : "mx-auto max-h-[78vh] w-auto object-contain"} />
+      </div>
+      <p className="mt-3 text-head">{caption}</p>
+    </dialog>
+  );
+}
+
+function Thumbs({ screens, label, open }) {
+  const shown = screens.slice(0, 4);
+  return (
+    <ul className="mt-5 grid grid-cols-4 gap-2" aria-label={`${label} screens`}>
+      {shown.map(([src, caption], k) => {
+        const more = k === 3 && screens.length > 4 ? screens.length - 4 : 0;
+        return (
+          <li key={caption}>
+            <button
+              type="button"
+              onClick={() => open(k)}
+              aria-label={`Open ${label} screen: ${caption}`}
+              className="group/thumb relative block aspect-[16/10] w-full overflow-hidden rounded border border-line bg-white transition-colors hover:border-gold"
             >
-              <img
-                src={src}
-                alt={caption}
-                width={w}
-                height={h}
-                loading="lazy"
-                decoding="async"
-                className={scroll ? "w-full" : "size-full object-cover object-left-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.02]"}
-              />
-            </div>
-            <figcaption className="mt-3 w-0 min-w-full text-[0.95rem] text-graphite">
-              {caption}
-              {scroll && <span className="text-quiet max-sm:hidden"> Scroll the frame to see the full page.</span>}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </div>
+              <img src={src} alt="" loading="lazy" decoding="async" className="size-full object-cover object-left-top transition-transform duration-500 ease-out-expo group-hover/thumb:scale-105" />
+              {more > 0 && (
+                <span className="absolute inset-0 grid place-items-center bg-night/75 font-mono text-sm text-head">+{more}</span>
+              )}
+            </button>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
-// First three items always visible; the rest expand in place.
-function ShippedList({ items }) {
+function Highlights({ items }) {
   const [open, setOpen] = useState(false);
-  const head = items.slice(0, 3);
-  const rest = items.slice(3);
-  const Row = ([k, v]) => (
-    <div key={k} className="ruled grid gap-x-8 gap-y-1 py-4 sm:grid-cols-[13rem_1fr]">
-      <dt className="font-medium">{k}</dt>
-      <dd className="max-w-[60ch] text-graphite">{v}</dd>
-    </div>
-  );
+  const list = open ? items : items.slice(0, 3);
   return (
-    <div className="mt-10">
-      <dl className="border-t border-rule">{head.map(Row)}</dl>
-      {rest.length > 0 && (
-        <>
-          <div
-            className={`grid transition-[grid-template-rows] duration-500 ease-out-expo ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-            inert={open ? undefined : ""}
-          >
-            <dl className="overflow-hidden">{rest.map(Row)}</dl>
-          </div>
-          <button
-            type="button"
-            onClick={() => setOpen(!open)}
-            aria-expanded={open}
-            className="group mt-4 inline-flex min-h-11 items-center gap-2 text-[0.95rem] text-graphite transition-colors hover:text-accent"
-          >
-            {open ? "Show less" : `Show all ${items.length}`}
-            <span className={`transition-transform duration-300 ${open ? "-rotate-90" : "rotate-90"}`}><Chevron /></span>
-          </button>
-        </>
+    <>
+      <ul className="mt-3 space-y-1.5 text-[0.9375rem]">
+        {list.map(([k, v]) => (
+          <li key={k} className="flex gap-3">
+            <span className="mt-[0.7em] h-px w-3 shrink-0 bg-gold" aria-hidden="true" />
+            <span><span className="text-head">{k}.</span> {v}</span>
+          </li>
+        ))}
+      </ul>
+      {items.length > 3 && (
+        <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} className="mt-2 inline-flex min-h-11 items-center font-mono text-xs uppercase tracking-wider text-dim transition-colors hover:text-gold">
+          {open ? "Show less" : `+ ${items.length - 3} more`}
+        </button>
       )}
+    </>
+  );
+}
+
+function SectionLabel({ id, children }) {
+  return (
+    <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-line bg-night px-6 py-4 md:-mx-12 md:px-12 lg:sr-only">
+      <h2 id={`${id}-h`} className="flex items-center gap-2.5 text-sm font-semibold text-head">
+        <span className="size-1.5 rounded-full bg-gold" aria-hidden="true" />
+        {children}
+      </h2>
     </div>
   );
 }
 
-const wrap = "mx-auto max-w-[1360px] px-5 sm:px-8 lg:px-12";
-const grid = "grid grid-cols-1 gap-x-8 lg:grid-cols-12";
+/* ---------- layout ---------- */
 
-function Section({ id, title, children }) {
+function Identity({ active }) {
   return (
-    <section id={id} aria-labelledby={`${id}-h`} className={`${wrap} pt-24 sm:pt-32 lg:pt-40`}>
-      <div className={grid}>
-        <h2 id={`${id}-h`} className="mb-10 text-[clamp(2.5rem,4vw,3.5rem)] leading-none font-[300] tracking-[-0.03em] lg:sticky lg:top-24 lg:col-span-3 lg:mb-0 lg:self-start">
-          {title}
-        </h2>
-        <div className="lg:col-span-9">{children}</div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- sections ---------- */
-
-function Header() {
-  return (
-    <header className="sticky top-0 z-10 border-b border-rule bg-paper">
-      <div className={`${wrap} flex h-16 items-center justify-between`}>
-        <a href="#top" className="text-[0.95rem] font-medium tracking-[-0.01em]">Ouzy<span className="max-[380px]:sr-only"> Maulana</span></a>
-        <nav aria-label="Sections" className="flex text-[0.95rem] text-graphite">
-          {[["Experience", "#experience"], ["Projects", "#projects"], ["Contact", "#contact"]].map(([label, href]) => (
-            <a key={href} href={href} className="flex min-h-11 items-center px-2 text-[0.875rem] transition-colors hover:text-ink sm:px-3.5 sm:text-[0.95rem] last:pr-0">
-              {label}
-            </a>
-          ))}
+    <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[46%] lg:flex-col lg:justify-between lg:py-24">
+      <div>
+        <h1 className="text-[clamp(3rem,6vw,4.75rem)] leading-[0.92] tracking-[-0.04em] text-head">
+          <a href="#about">
+            <span className="block font-extralight">Ouzy</span>
+            <span className="block font-semibold">Maulana</span>
+          </a>
+        </h1>
+        <p className="mt-6 text-lg text-head">Frontend Developer</p>
+        <p className="mt-1 font-mono text-xs leading-6 text-gold">SvelteKit / React / Angular / TypeScript</p>
+        <p className="mt-6 inline-flex items-center gap-2.5 text-sm text-dim">
+          <span className="size-2 rounded-full bg-gold" aria-hidden="true" />
+          Currently at Beyondtech, Jakarta
+        </p>
+        <nav className="mt-14 hidden lg:block" aria-label="In-page">
+          <ul className="w-max">
+            {SECTIONS.map(([id, label]) => {
+              const on = active === id;
+              return (
+                <li key={id}>
+                  <a href={`#${id}`} aria-current={on ? "true" : undefined} className="group flex items-center gap-3 py-2">
+                    <span className={`size-1.5 rounded-full transition-all duration-300 ${on ? "scale-100 bg-gold" : "scale-50 bg-dim group-hover:scale-100"}`} aria-hidden="true" />
+                    <span className={`text-[0.9375rem] transition-colors group-hover:text-head ${on ? "text-head" : "text-dim"}`}>{label}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </nav>
       </div>
+      <ul className="mt-8 flex items-center gap-1" aria-label="Social media">
+        {[["github", LINKS.github, "GitHub"], ["linkedin", LINKS.linkedin, "LinkedIn"], ["instagram", LINKS.instagram, "Instagram"], ["mail", `mailto:${EMAIL}`, "Email"]].map(([icon, href, label]) => (
+          <li key={label}>
+            <a href={href} target={icon === "mail" ? undefined : "_blank"} rel="noreferrer" aria-label={label} className="grid size-11 place-items-center text-dim transition-colors hover:text-gold">
+              <Icon name={icon} className="size-6" />
+            </a>
+          </li>
+        ))}
+      </ul>
     </header>
   );
 }
 
-function Hero() {
+function Featured({ openGallery }) {
+  const bt = ROLES[0];
+  const k = bt.screens.findIndex(([src]) => src === btActivation);
+  const [src, caption, w, h] = bt.screens[k];
   return (
-    <section id="top" className={`${wrap} pt-14 sm:pt-20 lg:pt-12`}>
-      <div className={`${grid} items-center gap-y-12`}>
-        <div className="lg:col-span-7 lg:pb-4">
-          <h1 className="text-[clamp(3.5rem,8vw,6rem)] leading-[0.95] font-[300] tracking-[-0.04em]">
-            <span className="block animate-rise">Ouzy</span>
-            <span className="block animate-rise [animation-delay:90ms]">Maulana</span>
-          </h1>
-          <p className="mt-8 max-w-[30ch] animate-rise text-[clamp(1.375rem,2.2vw,1.875rem)] leading-[1.3] font-[350] tracking-[-0.015em] [animation-delay:180ms]">
-            Frontend developer building merchant and internal backoffice systems for fintech.
-          </p>
-          <p className="mt-6 animate-rise text-graphite [animation-delay:260ms]">
-            Open to new roles and freelance work
-          </p>
-          <div className="mt-10 flex animate-rise flex-wrap items-center gap-x-7 gap-y-3 [animation-delay:340ms]">
-            <a
-              href={`mailto:${EMAIL}`}
-              className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] bg-ink px-6 max-sm:w-full text-paper transition-[background-color,transform] duration-200 hover:bg-accent active:translate-y-px"
-            >
-              Email me <Arrow className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a href={LINKS.linkedin} target="_blank" rel="noreferrer" className="link inline-flex min-h-11 items-center gap-1.5">LinkedIn <Arrow /></a>
-            <a href={LINKS.github} target="_blank" rel="noreferrer" className="link inline-flex min-h-11 items-center gap-1.5">GitHub <Arrow /></a>
-          </div>
-        </div>
-        <figure className="animate-rise [animation-delay:160ms] lg:col-span-4 lg:col-start-9">
-          <img
-            src={portrait}
-            alt="Ouzy Maulana wearing a batik shirt"
-            width="720"
-            height="1008"
-            fetchPriority="high"
-            className="aspect-[4/5] w-full object-cover object-[50%_30%]"
-          />
-          <figcaption className="mt-3 text-sm text-quiet">Tangerang Selatan, Indonesia</figcaption>
-        </figure>
-      </div>
+    <figure>
+      <button
+        type="button"
+        onClick={() => openGallery({ screens: bt.screens, label: bt.company, index: k })}
+        aria-label={`Open ${bt.company} screens, starting with: ${caption}`}
+        className="group block w-full overflow-hidden rounded-md border border-line bg-white transition-colors hover:border-gold"
+      >
+        <img src={src} alt={caption} width={w} height={h} fetchPriority="high" className="aspect-[16/10] w-full object-cover object-left-top transition-transform duration-700 ease-out-expo group-hover:scale-[1.02]" />
+      </button>
+      <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 text-sm">
+        <span><span className="text-head">Now building</span> the merchant and internal backoffice at Beyondtech.</span>
+        <span className="inline-flex items-center gap-1 font-mono text-xs text-gold">View all screens <Icon name="arrow" className="size-3" /></span>
+      </figcaption>
+    </figure>
+  );
+}
 
-      <ol className="mt-16 sm:mt-20 lg:mt-12" aria-label="Career index">
-        {[...ROLES.map((r) => [r.company, r.role, r.years, `#${r.id}`]), ["Solusi Pembayaran Elektronik", "Engineering Intern", "2021 · 2023", "#earlier"]].map(
-          ([company, role, years, href], i) => (
-            <li key={company} className="relative">
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-0 top-0 h-px origin-left animate-draw bg-rule"
-                style={{ animationDelay: `${400 + i * 120}ms` }}
-              />
-              <a href={href} className="group grid grid-cols-[1fr_auto] gap-x-6 py-5 sm:grid-cols-12 sm:gap-x-8">
-                <span className="text-[1.125rem] font-medium tracking-[-0.01em] transition-colors group-hover:text-accent sm:col-span-5">{company}</span>
-                <span className="hidden text-graphite sm:col-span-4 sm:block">{role}</span>
-                <span className="relative text-right text-graphite tabular-nums sm:col-span-3">
-                  {years}
-                  <span className="absolute top-1/2 left-full ml-3 -translate-x-1 -translate-y-1/2 text-accent opacity-0 transition-[opacity,translate] duration-300 group-hover:translate-x-0 group-hover:opacity-100 max-sm:hidden" aria-hidden="true">
-                    <Arrow className="rotate-45" />
-                  </span>
-                </span>
-              </a>
-            </li>
-          )
-        )}
-      </ol>
-      <div className="h-px bg-rule" />
+function About({ openGallery }) {
+  return (
+    <section id="about" aria-labelledby="about-h" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+      <SectionLabel id="about">About</SectionLabel>
+      <Featured openGallery={openGallery} />
+      <div className="mt-14 grid gap-8 sm:grid-cols-[1fr_12rem]">
+        <div className="space-y-4">
+          <p>
+            I'm a frontend developer based in Tangerang Selatan who builds the screens fintech teams depend on:
+            <span className="text-head"> merchant dashboards, internal backoffices</span> and the flows that move money between them.
+          </p>
+          <p>
+            Right now I'm at <a className="link" href="https://beyondtech.co.id/" target="_blank" rel="noreferrer">Beyondtech</a>, building
+            backoffice applications in SvelteKit and TypeScript: authentication, merchant onboarding, disbursement, QRIS service control,
+            PIN security and end-of-day reconciliation reports. Before that I spent almost two years at BNI Sekuritas working on modules
+            of a micro-frontend platform in React and Angular, including Host to Host BNI.
+          </p>
+          <p>Alongside work, I'm studying Computer Science at Binus University.</p>
+        </div>
+        <img src={portrait} alt="Ouzy Maulana wearing a batik shirt" width="720" height="1008" loading="lazy" className="w-40 rounded-md border border-line object-cover sm:w-full" />
+      </div>
+      <dl className="mt-10 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+        {STACK.map(([k, v]) => (
+          <div key={k}>
+            <dt className="font-mono text-xs uppercase tracking-wider text-dim">{k}</dt>
+            <dd className="mt-1 text-[0.9375rem]">{v}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }
 
-function Experience() {
+function Experience({ openGallery }) {
   return (
-    <Section id="experience" title="Experience">
-      <div className="space-y-20 sm:space-y-24">
+    <section id="experience" aria-labelledby="experience-h" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+      <SectionLabel id="experience">Experience</SectionLabel>
+      <ol className="space-y-12">
         {ROLES.map((r) => (
-          <article key={r.company} id={r.id}>
-            <header className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-              <h3 className="text-[clamp(1.625rem,2.4vw,1.875rem)] leading-tight font-[400] tracking-[-0.025em]">{r.company}</h3>
-              <p className="text-graphite tabular-nums">{r.period}</p>
-            </header>
-            <p className="mt-2 text-graphite">
-              {r.role} · {r.legal} <span className="whitespace-nowrap">· {r.place}</span>
-              {r.site && (
-                <>
-                  {" · "}
-                  <a href={r.site[1]} target="_blank" rel="noreferrer" className="link inline-flex items-center gap-1">
-                    {r.site[0]} <Arrow />
-                  </a>
-                </>
-              )}
-            </p>
-            <p className="mt-6 max-w-[58ch] text-[1.1875rem] leading-relaxed">{r.summary}</p>
-            {r.screens.length > 0 && <Carousel screens={r.screens} label={r.company} />}
-            <ShippedList items={r.shipped} />
-            <p className="mt-5 text-sm text-quiet">{r.stack.join(" · ")}</p>
-          </article>
+          <li key={r.id} id={r.id} className="scroll-mt-24">
+            <div className="group grid border-l border-line pl-5 transition-colors duration-300 hover:border-gold sm:grid-cols-8 sm:gap-6">
+              <p className="mt-1 mb-2 font-mono text-xs uppercase tracking-wide text-dim sm:col-span-2">{r.period}</p>
+              <div className="sm:col-span-6">
+                <h3 className="leading-snug font-medium text-head transition-colors">
+                  {r.role} ·{" "}
+                  {r.site ? (
+                    <a className="group/link inline-flex items-baseline gap-1 transition-colors hover:text-gold" href={r.site[1]} target="_blank" rel="noreferrer">
+                      {r.company}
+                      <Icon name="arrow" className="size-3.5 translate-y-px transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    </a>
+                  ) : (
+                    r.company
+                  )}
+                </h3>
+                <p className="mt-2 text-[0.9375rem]">{r.summary}</p>
+                <Highlights items={r.shipped} />
+                <Pills items={r.stack} />
+                {r.screens.length > 0 && <Thumbs screens={r.screens} label={r.company} open={(k) => openGallery({ screens: r.screens, label: r.company, index: k })} />}
+              </div>
+            </div>
+          </li>
         ))}
-
-        <div id="earlier">
-          <h3 className="mb-6 text-sm font-medium text-quiet">Earlier</h3>
-          <ul className="border-t border-rule">
-            {EARLIER.map(([role, company, year, note]) => (
-              <li key={year} className="ruled grid gap-x-8 gap-y-1 py-5 sm:grid-cols-[13rem_1fr_auto]">
-                <span className="font-medium">{role}</span>
-                <span className="text-graphite">
-                  {company}
-                  <span className="mt-1 block max-w-[56ch] text-[0.95rem] text-quiet">{note}</span>
-                </span>
-                <span className="text-graphite tabular-nums sm:text-right">{year}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-function Project({ p, large }) {
-  return (
-    <article className={large ? "sm:col-span-2" : ""}>
-      <div className="overflow-hidden border border-rule bg-plate">
-        <img
-          src={p.img}
-          alt={`${p.name} interface`}
-          width="1280"
-          height="622"
-          loading="lazy"
-          decoding="async"
-          className="aspect-[1280/622] w-full object-cover object-top transition-transform duration-700 ease-out-expo hover:scale-[1.02]"
-        />
-      </div>
-      <div className={`mt-5 ${large ? "grid gap-x-8 gap-y-3 lg:grid-cols-[1fr_1.4fr]" : "space-y-3"}`}>
-        <h3 className="text-[1.5rem] leading-tight font-[400] tracking-[-0.02em]">{p.name}</h3>
-        <div className="space-y-3">
-          <p className="max-w-[52ch] text-graphite">{p.desc}</p>
-          <p className="text-sm text-quiet">{p.stack}</p>
-          <p className="flex flex-wrap gap-x-6">
-            {p.links.map(([label, url]) => (
-              <a key={url} href={url} target="_blank" rel="noreferrer" className="link inline-flex min-h-11 items-center gap-1.5">
-                {label} on GitHub <Arrow />
-              </a>
-            ))}
-          </p>
-        </div>
-      </div>
-    </article>
+        {EARLIER.map(([role, company, year, note]) => (
+          <li key={year} id={year === "2023" ? "earlier" : undefined} className="scroll-mt-24">
+            <div className="group grid border-l border-line pl-5 transition-colors duration-300 hover:border-gold sm:grid-cols-8 sm:gap-6">
+              <p className="mt-1 mb-2 font-mono text-xs uppercase tracking-wide text-dim sm:col-span-2">{year}</p>
+              <div className="sm:col-span-6">
+                <h3 className="leading-snug font-medium text-head">{role} · {company}</h3>
+                <p className="mt-2 text-[0.9375rem]">{note}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <ul className="mt-12 space-y-2 border-t border-line pt-8" aria-label="Education">
+        {EDUCATION.map(([school, prog, years]) => (
+          <li key={school} className="grid gap-x-4 sm:grid-cols-8">
+            <span className="font-mono text-xs uppercase tracking-wide leading-6 text-dim sm:col-span-2">{years}</span>
+            <span className="sm:col-span-6"><span className="text-head">{school}</span> · {prog}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 
 function Projects() {
   return (
-    <Section id="projects" title="Projects">
-      <div className="grid gap-x-8 gap-y-16 sm:grid-cols-2">
-        {PROJECTS.map((p, i) => <Project key={p.name} p={p} large={i === 0} />)}
-      </div>
-    </Section>
-  );
-}
-
-function Background() {
-  return (
-    <Section id="background" title="Background">
-      <div className="grid gap-x-8 gap-y-14 xl:grid-cols-[1.3fr_1fr]">
-        <div>
-          <h3 className="mb-4 text-sm font-medium text-quiet">Stack</h3>
-          <dl className="border-t border-rule">
-            {STACK.map(([k, v]) => (
-              <div key={k} className="ruled grid gap-x-8 gap-y-1 py-4 sm:grid-cols-[9rem_1fr]">
-                <dt className="font-medium">{k}</dt>
-                <dd className="text-graphite">{v}</dd>
+    <section id="projects" aria-labelledby="projects-h" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
+      <SectionLabel id="projects">Projects</SectionLabel>
+      <ul className="space-y-12">
+        {PROJECTS.map((p) => (
+          <li key={p.name}>
+            <div className="group grid gap-4 border-l border-line pl-5 transition-colors duration-300 hover:border-gold sm:grid-cols-8 sm:gap-6">
+              <div className="sm:order-2 sm:col-span-6">
+                <h3 className="font-medium leading-snug text-head">
+                  <a className="group/link inline-flex items-baseline gap-1 transition-colors hover:text-gold" href={p.links[0][1]} target="_blank" rel="noreferrer">
+                    {p.name}
+                    <Icon name="arrow" className="size-3.5 translate-y-px transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  </a>
+                </h3>
+                <p className="mt-2 text-[0.9375rem]">{p.desc}</p>
+                {p.links.length > 1 && (
+                  <p className="mt-2 flex gap-4 text-sm">
+                    {p.links.map(([label, url]) => (
+                      <a key={url} className="link inline-flex min-h-11 items-center gap-1.5" href={url} target="_blank" rel="noreferrer">
+                        <Icon name="github" className="size-4" /> {label}
+                      </a>
+                    ))}
+                  </p>
+                )}
+                <Pills items={p.stack.split(" · ")} />
               </div>
-            ))}
-          </dl>
-        </div>
-        <div>
-          <h3 className="mb-4 text-sm font-medium text-quiet">Education</h3>
-          <ul className="border-t border-rule">
-            {EDUCATION.map(([school, prog, years]) => (
-              <li key={school} className="ruled grid grid-cols-[1fr_auto] gap-x-6 py-4">
-                <span className="font-medium">{school}</span>
-                <span className="text-graphite tabular-nums">{years}</span>
-                <span className="text-graphite">{prog}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </Section>
+              <img
+                src={p.img}
+                alt={`${p.name} interface`}
+                width="1280"
+                height="622"
+                loading="lazy"
+                decoding="async"
+                className="aspect-[16/10] w-48 rounded border border-line object-cover object-left-top transition-colors group-hover:border-gold/50 sm:order-1 sm:col-span-2 sm:w-full sm:translate-y-1"
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
+      <a href={LINKS.github} target="_blank" rel="noreferrer" className="group/link mt-12 inline-flex items-center gap-2 font-medium text-head transition-colors hover:text-gold">
+        More on GitHub <Icon name="arrow" className="size-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+      </a>
+    </section>
   );
 }
 
 function Contact() {
   return (
-    <footer id="contact" className={`${wrap} pt-32 pb-10 sm:pt-44`}>
-      <div className="border-t border-ink pt-14 sm:pt-20">
-        <h2 className="max-w-[16ch] text-[clamp(2.5rem,6vw,5rem)] leading-[1.02] font-[300] tracking-[-0.035em]">
-          Have a role or a product in mind?
-        </h2>
-        <a
-          href={`mailto:${EMAIL}`}
-          className="link mt-10 inline-flex items-center gap-3 text-[clamp(1.25rem,3vw,2rem)] font-[350] tracking-[-0.015em] break-all"
-        >
-          {EMAIL} <Arrow />
-        </a>
-        <ul className="mt-14 flex flex-wrap gap-x-8 gap-y-2 text-graphite">
-          <li><a className="link inline-flex min-h-11 items-center" href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
-          <li><a className="link inline-flex min-h-11 items-center" href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a></li>
-          <li><a className="link inline-flex min-h-11 items-center" href={LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
-          <li className="inline-flex min-h-11 items-center">Tangerang Selatan, Indonesia</li>
-        </ul>
-        <p className="mt-20 text-sm text-quiet">© {new Date().getFullYear()} Ouzy Maulana</p>
-      </div>
-    </footer>
+    <section id="contact" aria-labelledby="contact-h" className="scroll-mt-16 lg:scroll-mt-24">
+      <h2 id="contact-h" className="text-[clamp(1.75rem,3vw,2.5rem)] leading-tight tracking-[-0.03em] text-head">
+        <span className="font-extralight">Have a role or a product</span> <span className="font-semibold">in mind?</span>
+      </h2>
+      <p className="mt-4 max-w-md">Email is the fastest way to reach me.</p>
+      <a
+        href={`mailto:${EMAIL}`}
+        className="group/link mt-8 inline-flex min-h-12 items-center gap-2 rounded-md border border-gold px-6 text-gold transition-colors hover:bg-gold hover:text-night"
+      >
+        {EMAIL}
+        <Icon name="arrow" className="size-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+      </a>
+      <p className="mt-24 max-w-md pb-16 text-sm text-dim lg:pb-0">
+        © {new Date().getFullYear()} Ouzy Maulana · Tangerang Selatan, Indonesia
+      </p>
+    </section>
   );
 }
 
 export default function App() {
+  const active = useActiveSection();
+  const [gallery, setGallery] = useState(null);
+  const glow = useRef(null);
+
+  useEffect(() => {
+    const fine = window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)");
+    if (!fine.matches) return;
+    const move = (e) => {
+      glow.current?.style.setProperty("--x", `${e.clientX}px`);
+      glow.current?.style.setProperty("--y", `${e.clientY}px`);
+    };
+    window.addEventListener("pointermove", move, { passive: true });
+    return () => window.removeEventListener("pointermove", move);
+  }, []);
+
   return (
     <>
-      <a href="#experience" className="sr-only z-20 bg-ink px-3 py-2 text-paper focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
+      <div ref={glow} className="spotlight pointer-events-none fixed inset-0 z-0" aria-hidden="true" />
+      <div className="fixed inset-y-0 left-0 z-0 hidden w-7 border-r border-line lg:block" aria-hidden="true">
+        <img src={batikStrip} alt="" className="size-full object-cover object-[30%_50%]" />
+      </div>
+      <img src={batikBand} alt="" aria-hidden="true" className="relative z-10 h-12 w-full object-cover lg:hidden" />
+      <a href="#experience" className="sr-only z-30 rounded bg-gold px-3 py-2 text-night focus:not-sr-only focus:fixed focus:top-3 focus:left-3">
         Skip to experience
       </a>
-      <Header />
-      <main>
-        <Hero />
-        <Experience />
-        <Projects />
-        <Background />
-      </main>
-      <Contact />
+      <div className="relative z-10 mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+        <div className="lg:flex lg:justify-between lg:gap-4">
+          <Identity active={active} />
+          <main className="pt-24 lg:w-[52%] lg:py-24">
+            <About openGallery={setGallery} />
+            <Experience openGallery={setGallery} />
+            <Projects />
+            <Contact />
+          </main>
+        </div>
+      </div>
+      <Lightbox gallery={gallery} onClose={() => setGallery(null)} />
     </>
   );
 }

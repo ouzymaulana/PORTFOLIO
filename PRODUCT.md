@@ -21,7 +21,7 @@ Personal portfolio of Ouzy Maulana, Frontend Developer (3 years). Success: a vis
 
 ## Positioning
 
-Fintech-grade frontend work: merchant and internal backoffice systems (auth flows, onboarding, disbursement, QRIS service management, PIN security, EOD reconciliation reports) at Beyondtech, and a micro-frontend trading/securities web app at BNI Sekuritas. Not a generic "I make landing pages" profile.
+Fintech-grade frontend work: merchant and internal backoffice systems (auth flows, onboarding, disbursement, QRIS service management, PIN security, EOD reconciliation reports) at Beyondtech, and modules of BNI Sekuritas's internal micro-frontend platform (including Host to Host BNI). Not a generic "I make landing pages" profile.
 
 ## Operating Context
 
@@ -39,7 +39,9 @@ Skills: HTML/CSS, Sass, JavaScript, TypeScript, React, Angular, Next.js, SvelteK
 
 - Selected personal projects only: Foodie Order (Next.js + Express full-stack), E-commerce (Next.js + Redux Toolkit), Uranus Cafe (React). Wappin and My-Banking dropped.
 - Public contact: email ouzymaulana@gmail.com, GitHub ouzymaulana, LinkedIn, Instagram ozyy.m, location Tangerang Selatan. Phone number is NOT public.
-- The user has real screenshots of the Beyondtech and BNI Sekuritas apps available on request; until supplied, use clearly labeled placeholders.
+- Real app screens were supplied by the user (2026-11-17/18): ~/Documents/Project/beyondtech-png and ~/Documents/Project/bnis-png. Contact details and customer/account IDs must stay blurred.
+- Screen captions describe only what is visible in those screens: Beyondtech disbursement pricing with bank priority order (Priority 1-4), EOD schedule, sales report with export, PIN modal, register and resend-limit flows, company News page; BNI Sekuritas internal platform module launcher with per-module role tags (IT-SYSDEV, CS-HEAD), and the Host to Host BNI v2 module whose menu shows Opening Account RDI, Overbooking, View Overbooking, View Kliring, View RTGS and Inquiry Account. The user stated their contribution includes Host to Host (2026-11-18).
+- Availability ("open to offers / new roles") is NOT confirmed by the user; do not state it on the site until confirmed.
 
 ## Evidence on Hand
 

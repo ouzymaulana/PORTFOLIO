@@ -1,297 +1,259 @@
 ---
 name: Ouzy Maulana
-description: Frontend developer portfolio set as a quiet, typeset record on a cool stone-white page.
+description: Two-panel developer profile on a warm near-black ground, lit by one sogan gold taken from the owner's batik shirt.
 colors:
-  ink: "#15161a"
-  accent: "#2b3a8c"
-  paper: "#f5f5f2"
-  plate: "#ffffff"
-  graphite: "#55575d"
-  quiet: "#6c6e73"
-  rule: "#dddcd6"
+  sogan-gold: "#e0b45c"
+  night: "#0f0e0c"
+  line: "#2a2722"
+  head: "#e9e4da"
+  body: "#a8a196"
+  dim: "#85807a"
+  screen-plate: "#ffffff"
 typography:
   display:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(3.5rem, 8vw, 6rem)"
-    fontWeight: 300
-    lineHeight: 0.95
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(3rem, 6vw, 4.75rem)"
+    fontWeight: 200
+    lineHeight: 0.92
     letterSpacing: "-0.04em"
-  closing:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 6vw, 5rem)"
-    fontWeight: 300
-    lineHeight: 1.02
-    letterSpacing: "-0.035em"
+  display-strong:
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(3rem, 6vw, 4.75rem)"
+    fontWeight: 600
+    lineHeight: 0.92
+    letterSpacing: "-0.04em"
   headline:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 4vw, 3.5rem)"
-    fontWeight: 300
-    lineHeight: 1
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(1.75rem, 3vw, 2.5rem)"
+    fontWeight: 200
+    lineHeight: 1.25
     letterSpacing: "-0.03em"
-  lede:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.375rem, 2.2vw, 1.875rem)"
-    fontWeight: 350
-    lineHeight: 1.3
-    letterSpacing: "-0.015em"
-  contact-link:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.25rem, 3vw, 2rem)"
-    fontWeight: 350
-    lineHeight: 1.6
-    letterSpacing: "-0.015em"
-  title:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.625rem, 2.4vw, 1.875rem)"
-    fontWeight: 400
-    lineHeight: 1.25
-    letterSpacing: "-0.025em"
-  title-sm:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.5rem"
-    fontWeight: 400
-    lineHeight: 1.25
-    letterSpacing: "-0.02em"
-  summary:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.1875rem"
-    fontWeight: 400
-    lineHeight: 1.625
-  index:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
+  role-line:
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.125rem"
+    fontWeight: 400
+    lineHeight: 1.75rem
+  title:
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1rem"
     fontWeight: 500
-    lineHeight: 1.6
-    letterSpacing: "-0.01em"
+    lineHeight: 1.375
   body:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.0625rem"
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1rem"
     fontWeight: 400
-    lineHeight: 1.6
+    lineHeight: 1.65
   body-sm:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.95rem"
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.9375rem"
     fontWeight: 400
-    lineHeight: 1.6
-  label:
-    fontFamily: "Bricolage Grotesque Variable, ui-sans-serif, system-ui, sans-serif"
+    lineHeight: 1.65
+  small:
+    fontFamily: "Geist Variable, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 400
-    lineHeight: 1.43
+    lineHeight: 1.25rem
+  stack-line:
+    fontFamily: "Geist Mono Variable, ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    lineHeight: 1.5rem
+  label:
+    fontFamily: "Geist Mono Variable, ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    lineHeight: 1rem
+    letterSpacing: "0.025em"
+  counter:
+    fontFamily: "Geist Mono Variable, ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: "0.875rem"
+    fontWeight: 400
+    lineHeight: 1.25rem
+    fontFeature: "tnum"
 rounded:
-  focus: "2px"
-  button: "3px"
+  sm: "4px"
+  md: "6px"
+  full: "9999px"
 spacing:
-  row: "1rem"
-  row-lg: "1.25rem"
-  gutter: "2rem"
-  page-x-sm: "1.25rem"
-  page-x-md: "2rem"
-  page-x-lg: "3rem"
-  section-sm: "6rem"
-  section-md: "8rem"
-  section-lg: "10rem"
-  container: "1360px"
+  gutter-mobile: "24px"
+  gutter-tablet: "48px"
+  gutter-desktop: "96px"
+  card-rule-inset: "20px"
+  list-gap: "48px"
+  section-gap-mobile: "64px"
+  section-gap-desktop: "144px"
 components:
-  button-primary:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    typography: "{typography.body}"
-    rounded: "{rounded.button}"
-    padding: "0 1.5rem"
-    height: "3rem"
-  button-primary-hover:
-    backgroundColor: "{colors.accent}"
-    textColor: "{colors.paper}"
-  text-link:
-    textColor: "{colors.ink}"
-    typography: "{typography.body}"
-    height: "2.75rem"
-  text-link-hover:
-    textColor: "{colors.accent}"
-  nav-link:
-    textColor: "{colors.graphite}"
+  contact-button:
+    backgroundColor: "transparent"
+    textColor: "{colors.sogan-gold}"
+    rounded: "{rounded.md}"
+    padding: "0 24px"
+    height: "48px"
+  contact-button-hover:
+    backgroundColor: "{colors.sogan-gold}"
+    textColor: "{colors.night}"
+  lightbox-control:
+    backgroundColor: "transparent"
+    textColor: "{colors.head}"
+    rounded: "{rounded.md}"
+    size: "44px"
+  lightbox-control-hover:
+    textColor: "{colors.sogan-gold}"
+  featured-screen:
+    backgroundColor: "{colors.screen-plate}"
+    rounded: "{rounded.md}"
+  thumb:
+    backgroundColor: "{colors.screen-plate}"
+    rounded: "{rounded.sm}"
+  stack-line:
+    textColor: "{colors.sogan-gold}"
+    typography: "{typography.stack-line}"
+  nav-item:
+    textColor: "{colors.dim}"
     typography: "{typography.body-sm}"
-    padding: "0 0.875rem"
-    height: "2.75rem"
-  nav-link-hover:
-    textColor: "{colors.ink}"
-  header:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    height: "4rem"
-  career-index-row:
-    textColor: "{colors.ink}"
-    typography: "{typography.index}"
-    padding: "1.25rem 0"
-  career-index-row-hover:
-    textColor: "{colors.accent}"
-  ledger-row:
-    textColor: "{colors.graphite}"
-    typography: "{typography.body}"
-    padding: "1rem 0"
-  project-plate:
-    backgroundColor: "{colors.plate}"
-  carousel-control:
-    textColor: "{colors.ink}"
-    rounded: "{rounded.button}"
-    size: "2.75rem"
-  carousel-control-hover:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-  carousel-slide:
-    backgroundColor: "{colors.plate}"
-    height: "clamp(210px, 28vw, 400px)"
-  carousel-caption:
-    textColor: "{colors.graphite}"
-    typography: "{typography.body-sm}"
-  disclosure-toggle:
-    textColor: "{colors.graphite}"
-    typography: "{typography.body-sm}"
-    height: "2.75rem"
-  disclosure-toggle-hover:
-    textColor: "{colors.accent}"
+  nav-item-active:
+    textColor: "{colors.head}"
+  social-icon:
+    textColor: "{colors.dim}"
+    size: "44px"
+  social-icon-hover:
+    textColor: "{colors.sogan-gold}"
 ---
 
 # Design System: Ouzy Maulana
 
 ## Overview
 
-**Creative North Star: "The Typeset Record"**
+**Creative North Star: "The Sogan Lamp"**
 
-The page reads like a well-set professional record: a cool stone-white sheet, near-black ink, and one family of type doing all the work. Elegance comes from scale, measure and spacing rather than from ornament. A very large, light, tightly tracked display sits against generous whitespace; everything below it is organised by 1px hairlines into indexes and ledgers that a recruiter can scan in seconds.
+A warm, dark room with one lamp. The ground is a brown-black taken from the shadows of a batik sogan shirt, the text is unbleached cloth, and a single gold, the gold of the sogan motif, marks everything that is live: links on hover, the active section, the stack lines, the closing email, the cursor's pool of light. Identity and navigation stay fixed on the left while the work scrolls on the right, so a recruiter always knows who and where.
 
-Density is low and deliberate. Structure is carried by a 12-column grid, sticky section titles in the left three columns, and horizontal rules; there are no cards, panels, shadows, pills or tinted fills. Colour is almost absent: one deep ink-blue appears only as a response to interaction (hover, focus). The portrait and project screenshots are shown natural, untreated.
+The world is quiet and dense in the way a well-kept record is: hairline rules, small mono labels, flat surfaces, real product screens set on white plates. Its one ornament is real: a crop of the owner's batik shirt, used as a fixed selvedge strip down the left edge on desktop and as a band across the top on mobile. Nothing else is decorative.
 
-Motion is a quiet signature built from one gesture, the hairline drawing left to right. On load the hero lines rise and fade in with a staggered expo ease and the career-index rules draw; further down, each ledger row's hairline draws as it scrolls into view, and each screen carousel fades up once. Scroll-driven motion only runs where view timelines are supported; reduced motion renders every final state with no animation. The world explicitly refuses both the dark-mode developer template and the cream-ground, italic-serif, terracotta editorial default.
+Structure follows a user-pinned two-panel reference; palette, type, imagery and component details do not, and must not drift back toward it (no navy/teal, no pill tags, no sibling dimming).
 
 **Key Characteristics:**
-- Cool stone-white ground, near-black ink, graphite and quiet greys for secondary text.
-- One variable grotesque (Bricolage Grotesque, optical-size axis) for every role; weight falls as size rises.
-- Hairline rules and whitespace instead of containers.
-- One accent, ink-blue, reserved for interaction states.
-- Tabular numerals for every date and year.
-- Rule-draw (on load in the hero, on scroll in ledgers), the hero rise and one carousel fade as the only signature motion.
+- Warm near-black ground, cloth-coloured text, one gold accent.
+- Two fixed/scrolling panels on desktop; one column with sticky section labels on mobile.
+- Name set in weight contrast: extralight over semibold, same size.
+- Flat surfaces separated by 1px hairlines; the only glow is the cursor spotlight.
+- Real batik raster as the only ornament; real app screens as the main imagery.
 
 ## Colors
 
-A near-monochrome stone-and-ink palette with a single cold blue that only appears when the visitor acts.
+A warm, low-chroma dark palette with a single saturated gold.
 
 ### Primary
-- **Ink** (#15161a): All primary text, headings, the filled "Email me" button, the selection highlight background, and the heavier rule that opens the contact footer.
-
-### Secondary
-- **Ink Blue** (#2b3a8c): Interaction only. Link hover colour, primary-button hover fill, career-index company hover, and the 2px focus outline.
+- **Sogan Gold** (sogan-gold): the only accent. Hover state of every link and bordered control, the active nav dot, the status dot, highlight dashes, slash-separated stack lines, the contact button, text selection and the focus outline. The spotlight uses it at 7% alpha.
 
 ### Neutral
-- **Stone Paper** (#f5f5f2): The page ground and the sticky header fill; also the button label and selection text colour.
-- **Screenshot Plate** (#ffffff): Pure white behind project screenshots only, inside a hairline border, so app captures sit on their own neutral.
-- **Graphite** (#55575d): Secondary text: roles, periods, definitions, nav links at rest, availability line.
-- **Quiet Grey** (#6c6e73): Tertiary text: captions, stack lists, small group labels ("Stack", "Education", "Earlier"), copyright.
-- **Hairline** (#dddcd6): Every 1px rule and border, the at-rest underline colour of text links, and the scrollbar thumb.
+- **Sogan Night** (night): page ground, sticky section label backing, selection text, thumb overflow veil (75%) and the dialog backdrop (96%).
+- **Hairline** (line): every border and rule: card left rules, image frames, lightbox controls, the section divider, the scrollbar thumb, the batik strip's edge.
+- **Unbleached Cloth** (head): headings, the name, company and school names, inline emphasis, link rest colour.
+- **Warm Sand** (body): running text.
+- **Faded Ink** (dim): dates, mono labels, inactive nav, social icons at rest, footer.
+- **Screen Plate** (screen-plate): white backing behind app screenshots only, so light UI captures sit on their own colour rather than bleeding into the dark ground.
 
 ### Named Rules
-**The One Blue Rule.** Ink Blue never appears at rest. It is a state colour: hover, focus, and nothing else. No blue fills, blue headings or blue decoration.
+**The One Lamp Rule.** Gold is the only hue. It marks what is live or current, never large fills; the contact button's hover fill is the single place it covers an area.
 
-**The No Tint Rule.** Surfaces are Stone Paper or, for screenshots only, the white plate. No tinted panels, gradients or coloured section bands.
+**The Hairline Rule.** Separation is a 1px line in the hairline colour, never a tint change or shadow.
 
 ## Typography
 
-**Display Font:** Bricolage Grotesque Variable (with ui-sans-serif, system-ui, sans-serif)
-**Body Font:** Bricolage Grotesque Variable (same family)
+**Display Font:** Geist Variable (with ui-sans-serif, system-ui)
+**Body Font:** Geist Variable
+**Label/Mono Font:** Geist Mono Variable (with ui-monospace, SFMono-Regular, Menlo)
 
-**Character:** One self-hosted variable grotesque with `font-optical-sizing: auto`, so the opsz axis tightens and thins the large sizes and opens the small ones. Display sizes run light (300) and tightly tracked; text sizes run regular; medium (500) is reserved for small emphasis.
+Both families are self-hosted through Fontsource.
+
+**Character:** A neutral grotesque that does its expressive work through weight contrast rather than a display face; the mono carries all metadata so dates and stacks read as data.
 
 ### Hierarchy
-- **Display** (300, clamp(3.5rem, 8vw, 6rem), 0.95, -0.04em): The hero name, set one word per line.
-- **Closing** (300, clamp(2.5rem, 6vw, 5rem), 1.02, -0.035em): The contact footer question, max 16ch.
-- **Headline** (300, clamp(2.5rem, 4vw, 3.5rem), 1, -0.03em): Section titles, sticky in the left three columns on large screens.
-- **Lede** (350, clamp(1.375rem, 2.2vw, 1.875rem), 1.3, -0.015em): The one-sentence hero statement, max 30ch.
-- **Contact Link** (350, clamp(1.25rem, 3vw, 2rem), -0.015em): The large email address in the footer.
-- **Title** (400, clamp(1.625rem, 2.4vw, 1.875rem), 1.25, -0.025em): Employer names in Experience.
-- **Title Small** (400, 1.5rem, 1.25, -0.02em): Project names.
-- **Summary** (400, 1.1875rem, 1.625): The one-paragraph role summary, max 58ch.
-- **Index** (500, 1.125rem, -0.01em): Company names in the hero career index.
-- **Body** (400, 1.0625rem, 1.6): Base text, definitions, links and buttons. Measures cap at 52 to 60ch.
-- **Body Small** (400 or 500, 0.95rem): Header brand (500, -0.01em), nav links, and the notes under earlier roles.
-- **Label** (400 or 500, 0.875rem): Captions, stack lists, copyright, and small group labels in sentence case (500).
+- **Display** (200 over 600, clamp(3rem, 6vw, 4.75rem), 0.92, -0.04em): the name only, first name extralight stacked over surname semibold.
+- **Headline** (200 with 600 emphasis, clamp(1.75rem, 3vw, 2.5rem), tight, -0.03em): the closing contact question, same weight-contrast device as the name.
+- **Role line** (400, 1.125rem): the job title under the name.
+- **Title** (500, 1rem, 1.375): card headings (role · company, project names), in head colour.
+- **Body** (400, 1rem, 1.65): About copy and the page default. Pretty wrapping on paragraphs, balanced on headings.
+- **Body small** (400, 0.9375rem, 1.65): card summaries, highlights, stack definitions, nav labels.
+- **Small** (400, 0.875rem): figcaption, status line, project source links, footer, mobile section labels (600).
+- **Stack line** (Mono 400, 0.75rem, 1.5rem leading): slash-separated technologies in gold.
+- **Label** (Mono 400, 0.75rem, uppercase, 0.025em to 0.05em): dates, stack category terms, the "+N more" toggle, in dim.
+- **Counter** (Mono 400, 0.875rem, tabular figures): lightbox position and the "+N" thumb veil.
 
 ### Named Rules
-**The Light At Scale Rule.** Weight falls as size rises: 300 for display and headline, 350 for lede, 400 for titles and text, 500 only for small emphasis. Never set a large size heavy.
+**The Weight Contrast Rule.** Large type pairs 200 with 600 at one size; it never changes family or size for emphasis.
 
-**The Tabular Dates Rule.** Every date, period and year uses tabular numerals so columns of years align.
-
-**The Sentence Case Rule.** Group labels are small, medium-weight, sentence case in Quiet Grey. No uppercase tracking, no labels floating above headings.
+**The Mono Is Data Rule.** Mono is used only for dates, labels, stacks and counts, never for prose or headings.
 
 ## Layout
 
-A centred container capped at 1360px with side padding of 1.25rem, 2rem from 640px, and 3rem from 1024px. Inside it, a single column on small screens becomes a 12-column grid at 1024px with a 2rem column gutter. Sections open with 6rem of top space, 8rem from 640px and 10rem from 1024px; the contact footer opens wider (8rem, then 11rem).
+Desktop (lg, 1024px+): a centred container (max 1280px, 96px side gutters) splits into a sticky identity panel (46% width, full viewport height, 96px vertical padding, content top and socials bottom) and a scrolling main column (52%). A fixed 28px batik strip with a hairline right edge sits on the far left, outside the container.
 
-Each section puts its headline in columns 1 to 3 (sticky at 6rem from the top on large screens) and its content in columns 4 to 12. The hero splits 7 columns of text against a 4-column portrait starting at column 9, with the career index spanning the full width beneath. Lists and ledgers use fixed label columns (13rem in Experience, 9rem in Stack) beside a fluid value column, collapsing to stacked rows on small screens. Projects run as a two-column grid from 640px with the first project spanning both. Screen carousels are the one element allowed past the container: their track bleeds to the right viewport edge (cancelling the page padding, and at 1024px up the full gutter outside the 1360px container), while the first slide stays aligned to the content column. The body clips horizontal overflow (`overflow-x: clip`) so the bleed never creates page-level sideways scroll.
+Tablet and mobile: a single column with 48px (md) or 24px gutters. A 48px batik band runs across the top. Section labels become sticky bars (night background, hairline bottom, gold 6px dot) bleeding to the gutters; on desktop they are visually hidden but kept for screen readers.
 
-Row rhythm is 1rem vertical padding for ledger rows and 1.25rem for index and earlier-role rows. The sticky header is 4rem tall; in-page anchors scroll with 5rem of top padding. All interactive targets are at least 2.75rem tall (3rem for the primary button).
+Rhythm: sections separate by 64px / 96px / 144px (mobile / md / lg). Card lists stack at 48px. Cards use an eight-column grid from sm up: two columns for the date, six for content, 24px gap. About pairs copy with a 12rem portrait column. Scroll offsets clear the sticky labels (64px mobile, 96px desktop).
 
 ## Elevation & Depth
 
-The system is completely flat. There are no shadows anywhere; depth comes only from the sticky header's paper fill and hairline bottom border sitting over the scrolling page, and from the white plate behind screenshots.
+Flat. No box-shadows anywhere. Depth comes from two sources only: the cursor spotlight, a 640px radial pool of gold at 7% alpha that fades to transparent at 75%, drawn on a fixed layer beneath the content; and the modal backdrop, night at 96% opacity, which nearly blacks out the page behind the lightbox.
 
 ### Named Rules
-**The Hairline Structure Rule.** Structure is drawn, not stacked: 1px Hairline rules separate rows, frame screenshots and underline the header. Only one rule is heavier in tone, the Ink rule that opens the contact footer.
+**The Single Glow Rule.** The spotlight is the only light effect. It runs on fine pointers only and is skipped entirely under reduced motion, leaving the page fully flat.
 
 ## Shapes
 
-Square by default. The only radii are a barely-softened 3px on the primary button and the carousel controls, and 2px on the focus outline. Images, plates, slides and rows have hard corners. The carousel's previous/next controls are 44px squares (2.75rem) with that 3px radius and a 1px Hairline border. Icons are thin 1.75-stroke line drawings: the arrow at 0.8em after outbound and action links, and a 16px chevron in the carousel controls and the disclosure toggle.
+Small, quiet corners. 6px (md) for the larger framed objects: the featured screen, portrait, lightbox frame and controls, the contact button. 4px (sm) for small framed images (thumbs, project thumbnails), the skip link, and the focus outline's corner. Full rounding is reserved for dots: the nav marker, status dot and section-label dot. Everything framed carries a 1px hairline border. The highlight bullet is a 12px by 1px gold dash, not a dot or glyph.
 
 ## Components
 
-### Buttons
-Quiet and solid; there is one.
-- **Shape:** Barely softened corners (3px).
-- **Primary:** Ink fill with Stone Paper label, 1.5rem horizontal padding, 3rem minimum height, label followed by the arrow icon; full width below 640px.
-- **Hover / Focus:** Fill shifts to Ink Blue over 200ms; presses down 1px when active; 2px Ink Blue focus outline at 3px offset. On hover the trailing arrow nudges 2px up and right over 300ms.
+### Identity panel
+The fixed left half. Name (display), role line, gold stack line, status line with an 8px gold dot ("Currently at ..."), the dot nav, and a row of four 44px social icon targets (24px stroked SVG, dim at rest, gold on hover).
 
-### Text Links
-- **Style:** Underlined in Hairline at 1px thickness with 0.3em offset; text in the inherited colour.
-- **Hover:** Underline takes the current colour and text turns Ink Blue over 250ms.
-- Outbound links carry the trailing arrow icon and a 2.75rem minimum target.
+### Navigation (dot nav)
+Desktop only. Each item is a 6px dot plus a body-small label. Inactive: dot dim at 50% scale, label dim. Hover: dot scales to 100%, label to head. Active (scroll-spied): dot gold at 100%, label head, aria-current set. Dot transition 300ms.
 
-### Navigation
-- **Style:** Sticky 4rem header on Stone Paper with a Hairline bottom border. Name at left in Body Small medium; three section links at right in Body Small Graphite, turning Ink on hover. Same layout on mobile with tighter link padding.
+### Featured screen
+Opens the main column: a real product screen in a 6px-radius white plate with a hairline border, 16:10, cropped top-left. The whole plate is a button that opens the lightbox. Hover: border turns gold, image scales to 1.02 over 700ms on the expo ease-out. The caption below pairs a small-text line with a gold mono count.
 
-### Career Index
-The hero's signature: a full-width ordered list of employer rows, each opened by a Hairline that draws from left to right on load (1.1s expo ease, staggered 120ms per row). Company in Index type, role in Graphite (hidden below 640px), years right-aligned in tabular Graphite. On row hover the company turns Ink Blue and an Ink Blue arrow (rotated 45 degrees to point right) slides in after the years: absolutely positioned and out of flow, so it never shifts the grid, fading from 0 and moving 4px over 300ms; hidden below 640px.
+### Experience card
+Content block with a 1px hairline left rule and 20px inset. Rule turns gold on hover (300ms). Date in a dim mono label column, then title (role · company, the company an external link with a 14px arrow that nudges up-right on hover), body-small summary, highlights, stack line, thumbs.
 
-### Ledger
-Definition lists and lists bounded by a top Hairline, with a Hairline under every row. Term in medium Body Ink, value in Graphite, in a fixed-width label column beside a fluid column. Each row's bottom Hairline is drawn as a pseudo-element so it can draw left to right (scaleX from 0, origin left, linear so scroll sets the pace) on the row's own view timeline, from the moment the row has fully entered until it covers 35% of the viewport (entry 100% to cover 35%), so the line draws while the row sits in the lower third. Without view-timeline support, or under reduced motion, the rule is simply present.
+### Highlights disclosure
+First three items shown, each a gold 12px dash, a head-coloured term, then the description at body-small. A mono uppercase dim "+ N more" / "Show less" toggle (44px tall target, gold on hover, aria-expanded).
 
-### Project Plate
-Screenshot on the white plate inside a 1px Hairline border, clipped, at the capture's own aspect ratio. On hover the image scales to 1.02 over 700ms with the expo ease. Below: Title Small name, Graphite description, Label stack in Quiet Grey, and source links.
+### Stack line
+Technologies joined by " / " in gold mono at 0.75rem. Never chips or pills.
 
-### Screen Carousel
-Employer app screens, one carousel per role, sitting above that role's shipped list. A horizontal scroll-snap track (mandatory, snapping to slide start, 1.25rem gap, thin Hairline scrollbar) that bleeds to the viewport edge (see Layout). Native scroll does the work; the two square controls only nudge it by 80% of the track width and dim to 30% at either end. Controls are Ink chevrons on Stone Paper with a Hairline border, filling Ink with a Stone Paper chevron on hover (never Ink Blue at rest or as a fill).
-- **Slides:** each screenshot on the white plate in a 1px Hairline frame, height clamp(210px, 28vw, 400px), width from the capture's own aspect ratio, capped at 84vw; cropped from the top left, zooming to 1.02 on hover over 700ms expo.
-- **Controls row:** above the track, right-aligned; no count or note line (removed at the owner's request).
-- **Captions:** Body Small Graphite under each slide, wrapping to the slide width.
-- **Landing slide:** a full-length page capture shown in a 16:10 frame that scrolls vertically from 640px up (focusable, with a Quiet Grey hint "Scroll the frame to see the full page."); below 640px it is a static top crop.
-- **Motion:** the whole carousel fades up 1.5rem once as it enters the viewport (view timeline, entry 5% to 45%); the only reveal on the page.
+### Thumbs grid
+Four columns, 8px gap, 16:10 tiles on white plates with a 4px radius and hairline border. Hover: border gold, image scales to 1.05 over 500ms expo ease-out. When more screens exist, the fourth tile carries a night/75% veil with "+N" in mono.
 
-### Disclosure
-For long shipped lists: the first three ledger rows always show, the rest sit in a collapsed grid row (0fr to 1fr over 500ms expo) that is `inert` while closed. The toggle is a Body Small Graphite text button, 2.75rem tall, reading "Show all N" or "Show less", followed by a chevron rotated down or up; it turns Ink Blue on hover and carries `aria-expanded`.
+### Lightbox dialog
+Native modal dialog, up to 1200px or 94vw. Header row: mono counter ("Company · 3 / 8") and three 44px hairline-bordered 6px-radius controls (previous, next, close; head icons, gold border and icon on hover). Screen sits in a white, 6px, hairline-framed plate capped at 78vh, scrolling for tall captures. Caption below in head. Arrow keys step, Esc and backdrop click close, focus is trapped by the browser.
+
+### Project card
+Same left-rule card as experience, with a thumbnail in the two-column slot (4px radius; its border warms to gold at 50% on hover). Title link with arrow, body-small description, optional source links with GitHub icon, stack line.
+
+### Contact
+Headline in weight contrast, one line of body copy, then the only bordered button: 48px tall, 24px horizontal padding, 6px radius, gold border and text; hover fills gold with night text. Arrow icon nudges up-right. Footer in dim small text.
+
+### Links
+Inline links rest in head and turn gold over 200ms. Focus everywhere is a 2px gold outline, 3px offset, 4px corner.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** separate content with 1px Hairline (#dddcd6) rules and whitespace.
-- **Do** keep Ink Blue (#2b3a8c) for hover and focus states only.
-- **Do** set large type light (300 to 350) with negative tracking, and let the opsz axis run automatically.
-- **Do** set every date and year in tabular numerals.
-- **Do** keep the motion to the hero rise (0.9s), the hero rule draw (1.1s), the scroll-driven ledger rule draw and the single carousel fade, all on cubic-bezier(0.16, 1, 0.3, 1) (the fade is linear on its timeline); gate scroll-driven motion behind view-timeline support and render the final state under reduced motion.
-- **Do** show photos and screenshots natural, with no filters or overlays.
-- **Do** blur contact details and customer or account IDs in every screenshot before it ships.
+- **Do** keep gold as the only hue and use it for live or current state, stacks and the contact action.
+- **Do** separate content with 1px hairlines and a gold-on-hover left rule, never with shadows or tinted panels.
+- **Do** set large type as 200 against 600 at one size with negative tracking (-0.04em display, -0.03em headline).
+- **Do** put product screenshots on white plates with a hairline border, 16:10, cropped top-left.
+- **Do** gate the spotlight to fine pointers with no reduced-motion preference.
+- **Do** keep every interactive target at least 44px.
 
 ### Don't:
-- **Don't** use box shadows, cards, tinted panels or pill shapes.
-- **Don't** introduce a second typeface; Bricolage Grotesque covers every role.
-- **Don't** switch to a cream ground, an italic display serif or terracotta accents.
-- **Don't** add uppercase tracked kickers or eyebrow labels above headings.
-- **Don't** use Ink Blue as a fill or text colour at rest.
+- **Don't** render stacks as pills or chips; they are slash-separated gold mono lines.
+- **Don't** dim sibling cards on hover.
+- **Don't** add box-shadows or glows beyond the cursor spotlight.
+- **Don't** introduce a second accent or the reference's navy and teal.
+- **Don't** use the batik as a generated or vector pattern; only real crops of the shirt photo.
+- **Don't** set prose or headings in mono.

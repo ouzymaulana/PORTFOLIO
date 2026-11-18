@@ -4,372 +4,135 @@
   "title": "Design System: Ouzy Maulana",
   "extensions": {
     "colorMeta": {
-      "ink": {
-        "role": "primary",
-        "displayName": "Ink",
-        "canonical": "#15161a",
-        "tonalRamp": [
-          "#0b0c0e",
-          "#15161a",
-          "#24262b",
-          "#3a3c42",
-          "#55575d",
-          "#7a7c82",
-          "#a9abb0",
-          "#dcdde0"
-        ]
-      },
-      "accent": {
-        "role": "secondary",
-        "displayName": "Ink Blue",
-        "canonical": "#2b3a8c",
-        "tonalRamp": [
-          "#141b45",
-          "#1f2a68",
-          "#2b3a8c",
-          "#3d4fad",
-          "#5b6cc4",
-          "#8592d6",
-          "#b4bce7",
-          "#e2e5f6"
-        ]
-      },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Stone Paper",
-        "canonical": "#f5f5f2",
-        "tonalRamp": [
-          "#262624",
-          "#3e3e3b",
-          "#5d5d59",
-          "#83837e",
-          "#acaca6",
-          "#d0d0ca",
-          "#e8e8e4",
-          "#f5f5f2"
-        ]
-      },
-      "plate": {
-        "role": "neutral",
-        "displayName": "Screenshot Plate",
-        "canonical": "#ffffff",
-        "tonalRamp": [
-          "#262626",
-          "#404040",
-          "#5e5e5e",
-          "#808080",
-          "#a6a6a6",
-          "#cccccc",
-          "#ebebeb",
-          "#ffffff"
-        ]
-      },
-      "graphite": {
-        "role": "neutral",
-        "displayName": "Graphite",
-        "canonical": "#55575d",
-        "tonalRamp": [
-          "#1d1e21",
-          "#2e3034",
-          "#424449",
-          "#55575d",
-          "#6c6e73",
-          "#8f9196",
-          "#b9bbbf",
-          "#e3e4e6"
-        ]
-      },
-      "quiet": {
-        "role": "neutral",
-        "displayName": "Quiet Grey",
-        "canonical": "#6c6e73",
-        "tonalRamp": [
-          "#232427",
-          "#36383c",
-          "#4f5156",
-          "#6c6e73",
-          "#86888c",
-          "#a4a6a9",
-          "#c7c8cb",
-          "#e9e9eb"
-        ]
-      },
-      "rule": {
-        "role": "neutral",
-        "displayName": "Hairline",
-        "canonical": "#dddcd6",
-        "tonalRamp": [
-          "#2a2a27",
-          "#45443f",
-          "#66655e",
-          "#8a8981",
-          "#adaca5",
-          "#c9c8c1",
-          "#dddcd6",
-          "#f1f0ec"
-        ]
-      }
+      "sogan-gold": { "role": "primary", "displayName": "Sogan Gold", "canonical": "#e0b45c", "tonalRamp": ["#2e220b", "#4f3b14", "#74581f", "#9a772d", "#c0973f", "#e0b45c", "#edcd8f", "#f8ecd2"] },
+      "night": { "role": "neutral", "displayName": "Sogan Night", "canonical": "#0f0e0c", "tonalRamp": ["#0f0e0c", "#1a1815", "#2a2722", "#45413a", "#67625a", "#8f8a82", "#bbb6ae", "#e9e4da"] },
+      "line": { "role": "neutral", "displayName": "Hairline", "canonical": "#2a2722", "tonalRamp": ["#0f0e0c", "#1a1815", "#2a2722", "#3c3831", "#544f46", "#726c62", "#9a948a", "#cdc8bf"] },
+      "head": { "role": "neutral", "displayName": "Unbleached Cloth", "canonical": "#e9e4da", "tonalRamp": ["#26231e", "#403c34", "#5f5a50", "#837d72", "#a8a196", "#c9c3b8", "#e9e4da", "#f6f3ee"] },
+      "body": { "role": "neutral", "displayName": "Warm Sand", "canonical": "#a8a196", "tonalRamp": ["#26231e", "#403c34", "#5f5a50", "#837d72", "#a8a196", "#c9c3b8", "#e3ded5", "#f6f3ee"] },
+      "dim": { "role": "neutral", "displayName": "Faded Ink", "canonical": "#85807a", "tonalRamp": ["#22201d", "#3a3733", "#58544f", "#85807a", "#a39e98", "#c2beb8", "#dfdcd7", "#f4f2ef"] },
+      "screen-plate": { "role": "neutral", "displayName": "Screen Plate", "canonical": "#ffffff", "tonalRamp": ["#262626", "#404040", "#5e5e5e", "#808080", "#a6a6a6", "#cccccc", "#ebebeb", "#ffffff"] }
     },
     "typographyMeta": {
-      "display": {
-        "displayName": "Display",
-        "purpose": "Hero name only, one word per line."
-      },
-      "closing": {
-        "displayName": "Closing",
-        "purpose": "Contact footer question, max 16ch."
-      },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Section titles, sticky in the left three columns on large screens."
-      },
-      "lede": {
-        "displayName": "Lede",
-        "purpose": "One-sentence hero statement, max 30ch."
-      },
-      "contact-link": {
-        "displayName": "Contact Link",
-        "purpose": "Large email address in the footer."
-      },
-      "title": {
-        "displayName": "Title",
-        "purpose": "Employer names in Experience."
-      },
-      "title-sm": {
-        "displayName": "Title Small",
-        "purpose": "Project names."
-      },
-      "summary": {
-        "displayName": "Summary",
-        "purpose": "Role summary paragraph, max 58ch."
-      },
-      "index": {
-        "displayName": "Index",
-        "purpose": "Company names in the hero career index."
-      },
-      "body": {
-        "displayName": "Body",
-        "purpose": "Base text, definitions, links and buttons; measures 52 to 60ch."
-      },
-      "body-sm": {
-        "displayName": "Body Small",
-        "purpose": "Header brand (500), nav links, notes under earlier roles."
-      },
-      "label": {
-        "displayName": "Label",
-        "purpose": "Captions, stack lists, copyright, sentence-case group labels (500)."
-      }
+      "display": { "displayName": "Display (light)", "purpose": "First name in the identity panel, extralight half of the weight-contrast pair." },
+      "display-strong": { "displayName": "Display (strong)", "purpose": "Surname, semibold half of the weight-contrast pair." },
+      "headline": { "displayName": "Headline", "purpose": "Closing contact question, 200 with a 600 emphasis phrase." },
+      "role-line": { "displayName": "Role line", "purpose": "Job title under the name." },
+      "title": { "displayName": "Title", "purpose": "Card headings: role · company, project names." },
+      "body": { "displayName": "Body", "purpose": "Running text and page default." },
+      "body-sm": { "displayName": "Body small", "purpose": "Card summaries, highlights, stack definitions, nav labels." },
+      "small": { "displayName": "Small", "purpose": "Captions, status, source links, footer, mobile section labels." },
+      "stack-line": { "displayName": "Stack line", "purpose": "Slash-separated technologies in gold mono." },
+      "label": { "displayName": "Label", "purpose": "Uppercase mono dates, category terms and the +N more toggle, in dim." },
+      "counter": { "displayName": "Counter", "purpose": "Tabular mono for lightbox position and the +N thumb veil." }
     },
-    "shadows": [],
+    "shadows": [
+      { "name": "spotlight", "value": "radial-gradient(640px circle at var(--x, -999px) var(--y, -999px), rgb(224 180 92 / 0.07), transparent 75%)", "purpose": "Background of a fixed, pointer-events-none layer under content; follows the cursor on fine pointers with no reduced-motion preference. The only light effect." },
+      { "name": "dialog-backdrop", "value": "rgb(15 14 12 / 0.96)", "purpose": "dialog::backdrop for the lightbox." },
+      { "name": "thumb-veil", "value": "rgb(15 14 12 / 0.75)", "purpose": "Overlay on the fourth thumb when more screens exist." },
+      { "name": "focus-ring", "value": "outline: 2px solid #e0b45c; outline-offset: 3px; border-radius: 4px", "purpose": "Global :focus-visible treatment." }
+    ],
     "motion": [
-      {
-        "name": "ease-out-expo",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Easing for load-in motion and the screenshot hover scale."
-      },
-      {
-        "name": "rise",
-        "value": "rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; from opacity 0, translateY(0.4em)",
-        "purpose": "Hero lines, lede, actions and portrait fade up on load, staggered 90ms to 340ms."
-      },
-      {
-        "name": "draw",
-        "value": "draw 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; from scaleX(0), origin left",
-        "purpose": "Hero career-index rules draw left to right on load, 400ms plus 120ms per row."
-      },
-      {
-        "name": "plate-zoom",
-        "value": "transform 700ms cubic-bezier(0.16, 1, 0.3, 1), scale(1.02)",
-        "purpose": "Project screenshot hover."
-      },
-      {
-        "name": "button-state",
-        "value": "background-color, transform 200ms",
-        "purpose": "Primary button hover fill and 1px active press; carousel control fill and opacity."
-      },
-      {
-        "name": "link-state",
-        "value": "text-decoration-color, color 0.25s",
-        "purpose": "Text link underline and colour on hover."
-      },
-      {
-        "name": "rule-draw-scroll",
-        "value": "rule-draw linear both; animation-timeline: --row (view-timeline on the row); animation-range: entry 100% cover 35%; from scaleX(0), origin left, on ::after",
-        "purpose": "Ledger row hairlines draw left to right as each row enters. Only inside @supports (animation-timeline: view()) and prefers-reduced-motion: no-preference."
-      },
-      {
-        "name": "reveal",
-        "value": "reveal linear both; animation-timeline: view(); animation-range: entry 5% entry 45%; from opacity 0, translate 0 1.5rem",
-        "purpose": "Screen carousel fades up once on entry; used nowhere else. Same @supports and reduced-motion guards."
-      },
-      {
-        "name": "arrow-nudge",
-        "value": "transform 300ms, translate 2px up and right on hover",
-        "purpose": "Email me button arrow."
-      },
-      {
-        "name": "index-arrow",
-        "value": "opacity, translate 300ms; from opacity 0, translateX(-4px)",
-        "purpose": "Career-index hover arrow sliding in after the years."
-      },
-      {
-        "name": "disclosure",
-        "value": "grid-template-rows 500ms cubic-bezier(0.16, 1, 0.3, 1), 0fr to 1fr",
-        "purpose": "Shipped-list Show all / Show less expansion."
-      },
-      {
-        "name": "slide-zoom",
-        "value": "transform 700ms cubic-bezier(0.16, 1, 0.3, 1), scale(1.02)",
-        "purpose": "Carousel slide hover."
-      }
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Image zooms: featured screen (scale 1.02, 700ms) and thumbs (scale 1.05, 500ms)." },
+      { "name": "colour", "value": "200ms (link utility) / 150ms default", "purpose": "Link and control colour shifts to gold." },
+      { "name": "card-rule", "value": "border-color 300ms", "purpose": "Card left rule turns gold on hover." },
+      { "name": "dot-scale", "value": "all 300ms, scale 0.5 to 1", "purpose": "Nav marker grows on hover and for the active section." },
+      { "name": "arrow-nudge", "value": "translate 2px right, 2px up", "purpose": "External-link arrows on hover." },
+      { "name": "reduced-motion", "value": "animation and transition none; smooth scroll off; spotlight not bound", "purpose": "prefers-reduced-motion: reduce." }
     ],
     "breakpoints": [
-      {
-        "name": "sm",
-        "value": "640px"
-      },
-      {
-        "name": "lg",
-        "value": "1024px"
-      },
-      {
-        "name": "xl",
-        "value": "1280px"
-      }
+      { "name": "sm", "value": "640px", "purpose": "Card eight-column grid, About portrait column, stack dl two columns." },
+      { "name": "md", "value": "768px", "purpose": "48px gutters, larger section gaps." },
+      { "name": "lg", "value": "1024px", "purpose": "Two-panel layout, batik strip replaces the band, dot nav appears, section labels hidden visually." }
     ]
   },
   "components": [
     {
-      "name": "Primary Button",
-      "kind": "button",
-      "refersTo": "button-primary",
-      "description": "The single filled action, Email me; Ink fill turning Ink Blue on hover.",
-      "html": "<a class=\"ds-btn-primary\" href=\"#\">Email me <svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7\"/><path d=\"M8 7h9v9\"/></svg></a>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 3rem; padding: 0 1.5rem; border-radius: 3px; background: var(--color-ink, #15161a); color: var(--color-paper, #f5f5f2); font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; text-decoration: none; transition: background-color 200ms, transform 200ms; } .ds-btn-primary:hover { background: var(--color-accent, #2b3a8c); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-accent, #2b3a8c); outline-offset: 3px; } .ds-arrow { width: 0.8em; height: 0.8em; }"
-    },
-    {
-      "name": "Text Link",
-      "kind": "custom",
-      "refersTo": "text-link",
-      "description": "Hairline-underlined link; underline and text shift to Ink Blue on hover.",
-      "html": "<a class=\"ds-link\" href=\"#\">LinkedIn <svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 17 17 7\"/><path d=\"M8 7h9v9\"/></svg></a>",
-      "css": ".ds-link { display: inline-flex; align-items: center; gap: 0.375rem; min-height: 2.75rem; color: var(--color-ink, #15161a); font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; text-decoration: underline; text-decoration-color: var(--color-rule, #dddcd6); text-decoration-thickness: 1px; text-underline-offset: 0.3em; transition: text-decoration-color 0.25s, color 0.25s; } .ds-link:hover { text-decoration-color: currentColor; color: var(--color-accent, #2b3a8c); } .ds-link:focus-visible { outline: 2px solid var(--color-accent, #2b3a8c); outline-offset: 3px; border-radius: 2px; } .ds-arrow { width: 0.8em; height: 0.8em; }"
-    },
-    {
-      "name": "Header Navigation",
+      "name": "Dot nav",
       "kind": "nav",
-      "refersTo": "header",
-      "description": "Sticky paper header with hairline base, name left, three Graphite section links right.",
-      "html": "<header class=\"ds-header\"><a class=\"ds-brand\" href=\"#\">Ouzy Maulana</a><nav class=\"ds-nav\"><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">Contact</a></nav></header>",
-      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; height: 4rem; padding: 0 2rem; background: var(--color-paper, #f5f5f2); border-bottom: 1px solid var(--color-rule, #dddcd6); font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.95rem; } .ds-brand { color: var(--color-ink, #15161a); font-weight: 500; letter-spacing: -0.01em; text-decoration: none; } .ds-nav { display: flex; } .ds-nav a { display: flex; align-items: center; min-height: 2.75rem; padding: 0 0.875rem; color: var(--color-graphite, #55575d); text-decoration: none; transition: color 150ms; } .ds-nav a:last-child { padding-right: 0; } .ds-nav a:hover { color: var(--color-ink, #15161a); } .ds-nav a:focus-visible { outline: 2px solid var(--color-accent, #2b3a8c); outline-offset: 3px; border-radius: 2px; }"
+      "refersTo": "nav-item",
+      "description": "Scroll-spied in-page nav in the identity panel; the dot scales up and turns gold for the active section.",
+      "html": "<ul class=\"ds-nav\"><li><a href=\"#\" aria-current=\"true\"><span class=\"ds-dot\"></span>About</a></li><li><a href=\"#\"><span class=\"ds-dot\"></span>Experience</a></li><li><a href=\"#\"><span class=\"ds-dot\"></span>Projects</a></li></ul>",
+      "css": ".ds-nav { list-style: none; margin: 0; padding: 0; background: var(--color-night, #0f0e0c); font-family: 'Geist Variable', ui-sans-serif, sans-serif; } .ds-nav a { display: flex; align-items: center; gap: 12px; padding: 8px 0; color: var(--color-dim, #85807a); font-size: 0.9375rem; text-decoration: none; transition: color 0.15s; } .ds-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--color-dim, #85807a); transform: scale(0.5); transition: all 0.3s; } .ds-nav a:hover { color: var(--color-head, #e9e4da); } .ds-nav a:hover .ds-dot { transform: scale(1); } .ds-nav a[aria-current] { color: var(--color-head, #e9e4da); } .ds-nav a[aria-current] .ds-dot { transform: scale(1); background: var(--color-gold, #e0b45c); } .ds-nav a:focus-visible { outline: 2px solid var(--color-gold, #e0b45c); outline-offset: 3px; border-radius: 4px; }"
     },
     {
-      "name": "Career Index",
-      "kind": "custom",
-      "refersTo": "career-index-row",
-      "description": "Signature hero index: hairline-ruled employer rows that draw in left to right; on hover the company turns Ink Blue and an out-of-flow Ink Blue arrow slides in after the years.",
-      "html": "<ol class=\"ds-index\"><li><a href=\"#\"><span class=\"ds-co\">Beyondtech</span><span class=\"ds-role\">Frontend Developer</span><span class=\"ds-yr\">2025–Now<span class=\"ds-ix-arrow\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 17 17 7\"/><path d=\"M8 7h9v9\"/></svg></span></span></a></li><li><a href=\"#\"><span class=\"ds-co\">BNI Sekuritas</span><span class=\"ds-role\">Frontend Developer</span><span class=\"ds-yr\">2024–2025</span></a></li></ol>",
-      "css": ".ds-index { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--color-rule, #dddcd6); font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; } .ds-index li { position: relative; } .ds-index li::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--color-rule, #dddcd6); transform-origin: left; animation: ds-draw 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; } .ds-index li:nth-child(2)::before { animation-delay: 120ms; } @keyframes ds-draw { from { transform: scaleX(0); } } .ds-index a { display: grid; grid-template-columns: 5fr 4fr 3fr; gap: 0 2rem; padding: 1.25rem 0; color: var(--color-ink, #15161a); text-decoration: none; } .ds-co { font-size: 1.125rem; font-weight: 500; letter-spacing: -0.01em; transition: color 150ms; } .ds-index a:hover .ds-co { color: var(--color-accent, #2b3a8c); } .ds-index a:focus-visible { outline: 2px solid var(--color-accent, #2b3a8c); outline-offset: 3px; } .ds-role, .ds-yr { color: var(--color-graphite, #55575d); } .ds-yr { text-align: right; font-variant-numeric: tabular-nums; } @media (prefers-reduced-motion: reduce) { .ds-index li::before { animation: none; } } .ds-yr { position: relative; } .ds-ix-arrow { position: absolute; top: 50%; left: 100%; margin-left: 0.75rem; transform: translate(-4px, -50%); color: var(--color-accent, #2b3a8c); opacity: 0; transition: opacity 300ms, transform 300ms; } .ds-ix-arrow svg { width: 0.8em; height: 0.8em; transform: rotate(45deg); } .ds-index a:hover .ds-ix-arrow { opacity: 1; transform: translate(0, -50%); }"
+      "name": "Contact button",
+      "kind": "button",
+      "refersTo": "contact-button",
+      "description": "The only bordered call to action: gold outline, fills gold on hover.",
+      "html": "<a class=\"ds-contact\" href=\"#\">name@example.com <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 17 17 7\"/><path d=\"M8 7h9v9\"/></svg></a>",
+      "css": ".ds-contact { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; border: 1px solid var(--color-gold, #e0b45c); border-radius: 6px; color: var(--color-gold, #e0b45c); font-family: 'Geist Variable', ui-sans-serif, sans-serif; text-decoration: none; transition: color 0.15s, background-color 0.15s; } .ds-contact svg { transition: transform 0.15s; } .ds-contact:hover { background: var(--color-gold, #e0b45c); color: var(--color-night, #0f0e0c); } .ds-contact:hover svg { transform: translate(2px, -2px); } .ds-contact:focus-visible { outline: 2px solid var(--color-gold, #e0b45c); outline-offset: 3px; }"
     },
     {
-      "name": "Ledger",
-      "kind": "custom",
-      "refersTo": "ledger-row",
-      "description": "Hairline-bounded definition list: medium Ink term in a fixed column, Graphite value beside it; each row hairline draws in on scroll where view timelines are supported.",
-      "html": "<dl class=\"ds-ledger\"><div><dt>Authentication</dt><dd>End-to-end flow: registration, email verification and password recovery.</dd></div><div><dt>Disbursement</dt><dd>Disbursement data management inside the merchant backoffice.</dd></div></dl>",
-      "css": ".ds-ledger { margin: 0; border-top: 1px solid var(--color-rule, #dddcd6); font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6; } .ds-ledger > div { display: grid; grid-template-columns: 13rem 1fr; gap: 0.25rem 2rem; padding: 1rem 0; position: relative; view-timeline-name: --row; } .ds-ledger > div::after { content: ''; position: absolute; inset-inline: 0; bottom: 0; height: 1px; background: var(--color-rule, #dddcd6); transform-origin: left; } @keyframes ds-rule-draw { from { transform: scaleX(0); } } @supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) { .ds-ledger > div::after { animation: ds-rule-draw linear both; animation-timeline: --row; animation-range: entry 100% cover 35%; } } } .ds-ledger dt { font-weight: 500; color: var(--color-ink, #15161a); } .ds-ledger dd { margin: 0; max-width: 60ch; color: var(--color-graphite, #55575d); }"
+      "name": "Lightbox control",
+      "kind": "button",
+      "refersTo": "lightbox-control",
+      "description": "44px square hairline-bordered icon button in the gallery header.",
+      "html": "<button class=\"ds-ctl\" type=\"button\" aria-label=\"Next screen\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m9 6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-ctl { display: grid; place-items: center; width: 44px; height: 44px; background: transparent; border: 1px solid var(--color-line, #2a2722); border-radius: 6px; color: var(--color-head, #e9e4da); cursor: pointer; transition: color 0.15s, border-color 0.15s; } .ds-ctl:hover { border-color: var(--color-gold, #e0b45c); color: var(--color-gold, #e0b45c); } .ds-ctl:focus-visible { outline: 2px solid var(--color-gold, #e0b45c); outline-offset: 3px; border-radius: 4px; }"
     },
     {
-      "name": "Project Plate",
+      "name": "Experience card",
       "kind": "card",
-      "refersTo": "project-plate",
-      "description": "Screenshot on a white plate inside a hairline border, zooming 2% on hover; text sits below on the paper, not in a card.",
-      "html": "<article class=\"ds-project\"><div class=\"ds-plate\"><div class=\"ds-shot\"></div></div><h3>Foodie Order</h3><p class=\"ds-desc\">Food ordering app with a Next.js front end on an Express REST API and MySQL.</p><p class=\"ds-stack\">Next.js · Express · MySQL · Redux</p></article>",
-      "css": ".ds-project { font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6; } .ds-plate { overflow: hidden; border: 1px solid var(--color-rule, #dddcd6); background: #ffffff; } .ds-shot { aspect-ratio: 1280 / 622; background: linear-gradient(#ffffff, #eeeeea); transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-shot:hover { transform: scale(1.02); } .ds-project h3 { margin: 1.25rem 0 0.75rem; font-size: 1.5rem; font-weight: 400; line-height: 1.25; letter-spacing: -0.02em; color: var(--color-ink, #15161a); } .ds-desc { margin: 0 0 0.75rem; max-width: 52ch; color: var(--color-graphite, #55575d); } .ds-stack { margin: 0; font-size: 0.875rem; color: var(--color-quiet, #6c6e73); }"
+      "description": "Left-rule card: date label column, title with arrow link, summary, gold-dash highlights, +N more toggle, stack line.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-date\">Sep 2025 – Present</p><div><h3 class=\"ds-title\">Frontend Developer · <a href=\"#\">Beyondtech</a></h3><p class=\"ds-sum\">Internal and merchant backoffice applications.</p><ul class=\"ds-hl\"><li><span class=\"ds-dash\"></span><span><b>Authentication.</b> Registration, verification and recovery.</span></li></ul><button class=\"ds-more\" type=\"button\">+ 5 more</button><p class=\"ds-stack\">SvelteKit / TypeScript / Tailwind CSS</p></div></div>",
+      "css": ".ds-card { display: grid; grid-template-columns: 1fr 3fr; gap: 24px; padding-left: 20px; border-left: 1px solid var(--color-line, #2a2722); background: var(--color-night, #0f0e0c); color: var(--color-body, #a8a196); font-family: 'Geist Variable', ui-sans-serif, sans-serif; transition: border-color 0.3s; } .ds-card:hover { border-left-color: var(--color-gold, #e0b45c); } .ds-date { margin: 4px 0 0; font-family: 'Geist Mono Variable', ui-monospace, monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.025em; color: var(--color-dim, #85807a); } .ds-title { margin: 0; font-size: 1rem; font-weight: 500; line-height: 1.375; color: var(--color-head, #e9e4da); } .ds-title a { color: inherit; text-decoration: none; transition: color 0.15s; } .ds-title a:hover { color: var(--color-gold, #e0b45c); } .ds-sum { margin: 8px 0 0; font-size: 0.9375rem; line-height: 1.65; } .ds-hl { list-style: none; margin: 12px 0 0; padding: 0; font-size: 0.9375rem; } .ds-hl li { display: flex; gap: 12px; } .ds-hl b { font-weight: 400; color: var(--color-head, #e9e4da); } .ds-dash { flex-shrink: 0; width: 12px; height: 1px; margin-top: 0.7em; background: var(--color-gold, #e0b45c); } .ds-more { min-height: 44px; margin-top: 8px; padding: 0; background: none; border: 0; font-family: 'Geist Mono Variable', ui-monospace, monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-dim, #85807a); cursor: pointer; transition: color 0.15s; } .ds-more:hover { color: var(--color-gold, #e0b45c); } .ds-stack { margin: 16px 0 0; font-family: 'Geist Mono Variable', ui-monospace, monospace; font-size: 0.75rem; line-height: 1.5rem; color: var(--color-gold, #e0b45c); }"
     },
     {
-      "name": "Screen Carousel",
+      "name": "Thumbs grid",
       "kind": "custom",
-      "refersTo": "carousel-slide",
-      "description": "Per-role scroll-snap gallery of app screens on white plates, with right-aligned square 44px Hairline controls.",
-      "html": "<div class=\"ds-car\"><div class=\"ds-car-head\"><div class=\"ds-car-ctl\"><button type=\"button\" aria-label=\"Previous screens\" disabled><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m15 6-6 6 6 6\"/></svg></button><button type=\"button\" aria-label=\"Next screens\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></button></div></div><div class=\"ds-car-track\" tabindex=\"0\" role=\"region\" aria-label=\"Screens, scroll horizontally\"><figure><div class=\"ds-car-slide ds-car-scroll\"></div><figcaption>Landing page <span>Scroll the frame to see the full page.</span></figcaption></figure><figure><div class=\"ds-car-slide\"></div><figcaption>Dashboard</figcaption></figure><figure><div class=\"ds-car-slide\"></div><figcaption>Transactions</figcaption></figure></div></div>",
-      "css": ".ds-car { font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; } .ds-car-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; } .ds-car-head p { margin: 0; font-size: 0.875rem; color: var(--color-quiet, #6c6e73); } .ds-car-ctl { display: flex; gap: 0.5rem; flex-shrink: 0; } .ds-car-ctl button { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 1px solid var(--color-rule, #dddcd6); border-radius: 3px; background: transparent; color: var(--color-ink, #15161a); cursor: pointer; transition: background-color 200ms, border-color 200ms, opacity 200ms; } .ds-car-ctl button:hover { background: var(--color-ink, #15161a); border-color: var(--color-ink, #15161a); color: var(--color-paper, #f5f5f2); } .ds-car-ctl button:focus-visible { outline: 2px solid var(--color-accent, #2b3a8c); outline-offset: 3px; } .ds-car-ctl button:disabled { opacity: 0.3; pointer-events: none; } .ds-car-ctl svg { width: 1rem; height: 1rem; } .ds-car-track { display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1.25rem; scrollbar-width: thin; scrollbar-color: var(--color-rule, #dddcd6) transparent; } .ds-car-track figure { margin: 0; display: flex; flex-direction: column; flex-shrink: 0; scroll-snap-align: start; } .ds-car-slide { height: clamp(210px, 28vw, 400px); max-width: 84vw; aspect-ratio: 9 / 19.5; overflow: hidden; border: 1px solid var(--color-rule, #dddcd6); background: #ffffff; } .ds-car-scroll { aspect-ratio: 16 / 10; overflow-y: auto; } .ds-car-track figcaption { width: 0; min-width: 100%; margin-top: 0.75rem; font-size: 0.95rem; color: var(--color-graphite, #55575d); } .ds-car-track figcaption span { color: var(--color-quiet, #6c6e73); }"
+      "refersTo": "thumb",
+      "description": "Four 16:10 screen tiles on white plates; gold border and zoom on hover; +N veil on the fourth.",
+      "html": "<ul class=\"ds-thumbs\"><li><button class=\"ds-thumb\" type=\"button\"></button></li><li><button class=\"ds-thumb\" type=\"button\"></button></li><li><button class=\"ds-thumb\" type=\"button\"></button></li><li><button class=\"ds-thumb\" type=\"button\"><span class=\"ds-veil\">+4</span></button></li></ul>",
+      "css": ".ds-thumbs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; } .ds-thumb { position: relative; display: block; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; padding: 0; background: #ffffff; border: 1px solid var(--color-line, #2a2722); border-radius: 4px; cursor: pointer; transition: border-color 0.15s; } .ds-thumb:hover { border-color: var(--color-gold, #e0b45c); } .ds-thumb:focus-visible { outline: 2px solid var(--color-gold, #e0b45c); outline-offset: 3px; } .ds-veil { position: absolute; inset: 0; display: grid; place-items: center; background: rgb(15 14 12 / 0.75); color: var(--color-head, #e9e4da); font-family: 'Geist Mono Variable', ui-monospace, monospace; font-size: 0.875rem; }"
     },
     {
-      "name": "Disclosure",
+      "name": "Inline link",
       "kind": "custom",
-      "refersTo": "disclosure-toggle",
-      "description": "Shipped-list expander: first three rows visible, rest in a grid-rows 0fr to 1fr panel that is inert when closed; Graphite 'Show all N' toggle.",
-      "html": "<div class=\"ds-disc\"><div class=\"ds-disc-panel\" inert><div class=\"ds-disc-inner\"><p>Fourth shipped item</p><p>Fifth shipped item</p></div></div><button type=\"button\" aria-expanded=\"false\">Show all 5 <span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg></span></button></div>",
-      "css": ".ds-disc { font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; } .ds-disc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 500ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-disc-panel:not([inert]) { grid-template-rows: 1fr; } .ds-disc-inner { overflow: hidden; } .ds-disc button { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; margin-top: 1rem; padding: 0; border: 0; background: none; font: inherit; font-size: 0.95rem; color: var(--color-graphite, #55575d); cursor: pointer; transition: color 150ms; } .ds-disc button:hover { color: var(--color-accent, #2b3a8c); } .ds-disc button:focus-visible { outline: 2px solid var(--color-accent, #2b3a8c); outline-offset: 3px; border-radius: 2px; } .ds-disc button span { display: inline-flex; transform: rotate(90deg); transition: transform 300ms; } .ds-disc button[aria-expanded=true] span { transform: rotate(-90deg); } .ds-disc svg { width: 1rem; height: 1rem; }"
+      "description": "The link utility: head at rest, gold on hover over 200ms.",
+      "html": "<p class=\"ds-p\">Right now I'm at <a class=\"ds-link\" href=\"#\">Beyondtech</a>, building backoffice applications.</p>",
+      "css": ".ds-p { color: var(--color-body, #a8a196); font-family: 'Geist Variable', ui-sans-serif, sans-serif; font-size: 1rem; line-height: 1.65; } .ds-link { color: var(--color-head, #e9e4da); text-decoration: none; transition: color 0.2s; } .ds-link:hover { color: var(--color-gold, #e0b45c); } .ds-link:focus-visible { outline: 2px solid var(--color-gold, #e0b45c); outline-offset: 3px; border-radius: 4px; }"
     },
     {
-      "name": "Section Headline",
+      "name": "Social icon",
       "kind": "custom",
-      "refersTo": "headline",
-      "description": "Light, tightly tracked section title that sits in the left three grid columns.",
-      "html": "<h2 class=\"ds-section-h\">Experience</h2>",
-      "css": ".ds-section-h { margin: 0; font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif; font-optical-sizing: auto; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; line-height: 1; letter-spacing: -0.03em; color: var(--color-ink, #15161a); }"
+      "refersTo": "social-icon",
+      "description": "44px target, 24px stroked icon, dim at rest, gold on hover.",
+      "html": "<a class=\"ds-social\" href=\"#\" aria-label=\"Email\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg></a>",
+      "css": ".ds-social { display: grid; place-items: center; width: 44px; height: 44px; color: var(--color-dim, #85807a); transition: color 0.15s; } .ds-social:hover { color: var(--color-gold, #e0b45c); } .ds-social:focus-visible { outline: 2px solid var(--color-gold, #e0b45c); outline-offset: 3px; border-radius: 4px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Typeset Record",
-    "overview": "The page reads like a well-set professional record: a cool stone-white sheet, near-black ink, and one family of type doing all the work. Elegance comes from scale, measure and spacing rather than from ornament. A very large, light, tightly tracked display sits against generous whitespace; everything below it is organised by 1px hairlines into indexes and ledgers that a recruiter can scan in seconds.\n\nDensity is low and deliberate. Structure is carried by a 12-column grid, sticky section titles in the left three columns, and horizontal rules; there are no cards, panels, shadows, pills or tinted fills. Colour is almost absent: one deep ink-blue appears only as a response to interaction (hover, focus). The portrait and project screenshots are shown natural, untreated.\n\nMotion is a quiet signature built from one gesture, the hairline drawing left to right. On load the hero lines rise and fade in with a staggered expo ease and the career-index rules draw; further down, each ledger row's hairline draws as it scrolls into view, and each screen carousel fades up once. Scroll-driven motion only runs where view timelines are supported; reduced motion renders every final state with no animation. The world explicitly refuses both the dark-mode developer template and the cream-ground, italic-serif, terracotta editorial default.",
+    "northStar": "The Sogan Lamp",
+    "overview": "A warm, dark room with one lamp. The ground is a brown-black taken from the shadows of a batik sogan shirt, the text is unbleached cloth, and a single gold, the gold of the sogan motif, marks everything that is live: links on hover, the active section, the stack lines, the closing email, the cursor's pool of light. Identity and navigation stay fixed on the left while the work scrolls on the right, so a recruiter always knows who and where.\n\nThe world is quiet and dense in the way a well-kept record is: hairline rules, small mono labels, flat surfaces, real product screens set on white plates. Its one ornament is real: a crop of the owner's batik shirt, used as a fixed selvedge strip down the left edge on desktop and as a band across the top on mobile. Nothing else is decorative.\n\nStructure follows a user-pinned two-panel reference; palette, type, imagery and component details do not, and must not drift back toward it (no navy/teal, no pill tags, no sibling dimming).",
     "keyCharacteristics": [
-      "Cool stone-white ground, near-black ink, graphite and quiet greys for secondary text.",
-      "One variable grotesque (Bricolage Grotesque, optical-size axis) for every role; weight falls as size rises.",
-      "Hairline rules and whitespace instead of containers.",
-      "One accent, ink-blue, reserved for interaction states.",
-      "Tabular numerals for every date and year.",
-      "Rule-draw (on load in the hero, on scroll in ledgers), the hero rise and one carousel fade as the only signature motion."
+      "Warm near-black ground, cloth-coloured text, one gold accent.",
+      "Two fixed/scrolling panels on desktop; one column with sticky section labels on mobile.",
+      "Name set in weight contrast: extralight over semibold, same size.",
+      "Flat surfaces separated by 1px hairlines; the only glow is the cursor spotlight.",
+      "Real batik raster as the only ornament; real app screens as the main imagery."
     ],
     "rules": [
-      {
-        "name": "The One Blue Rule",
-        "body": "Ink Blue never appears at rest. It is a state colour: hover, focus, and nothing else. No blue fills, blue headings or blue decoration.",
-        "section": "colors"
-      },
-      {
-        "name": "The No Tint Rule",
-        "body": "Surfaces are Stone Paper or, for screenshots only, the white plate. No tinted panels, gradients or coloured section bands.",
-        "section": "colors"
-      },
-      {
-        "name": "The Light At Scale Rule",
-        "body": "Weight falls as size rises: 300 for display and headline, 350 for lede, 400 for titles and text, 500 only for small emphasis. Never set a large size heavy.",
-        "section": "typography"
-      },
-      {
-        "name": "The Tabular Dates Rule",
-        "body": "Every date, period and year uses tabular numerals so columns of years align.",
-        "section": "typography"
-      },
-      {
-        "name": "The Sentence Case Rule",
-        "body": "Group labels are small, medium-weight, sentence case in Quiet Grey. No uppercase tracking, no labels floating above headings.",
-        "section": "typography"
-      },
-      {
-        "name": "The Hairline Structure Rule",
-        "body": "Structure is drawn, not stacked: 1px Hairline rules separate rows, frame screenshots and underline the header. Only one rule is heavier in tone, the Ink rule that opens the contact footer.",
-        "section": "elevation"
-      }
+      { "name": "The One Lamp Rule", "body": "Gold is the only hue. It marks what is live or current, never large fills; the contact button's hover fill is the single place it covers an area.", "section": "colors" },
+      { "name": "The Hairline Rule", "body": "Separation is a 1px line in the hairline colour, never a tint change or shadow.", "section": "colors" },
+      { "name": "The Weight Contrast Rule", "body": "Large type pairs 200 with 600 at one size; it never changes family or size for emphasis.", "section": "typography" },
+      { "name": "The Mono Is Data Rule", "body": "Mono is used only for dates, labels, stacks and counts, never for prose or headings.", "section": "typography" },
+      { "name": "The Single Glow Rule", "body": "The spotlight is the only light effect. It runs on fine pointers only and is skipped entirely under reduced motion, leaving the page fully flat.", "section": "elevation" }
     ],
     "dos": [
-      "Do separate content with 1px Hairline (#dddcd6) rules and whitespace.",
-      "Do keep Ink Blue (#2b3a8c) for hover and focus states only.",
-      "Do set large type light (300 to 350) with negative tracking, and let the opsz axis run automatically.",
-      "Do set every date and year in tabular numerals.",
-      "Do keep the motion to the hero rise (0.9s), the hero rule draw (1.1s), the scroll-driven ledger rule draw and the single carousel fade, all on cubic-bezier(0.16, 1, 0.3, 1) (the fade is linear on its timeline); gate scroll-driven motion behind view-timeline support and render the final state under reduced motion.",
-      "Do show photos and screenshots natural, with no filters or overlays.",
-      "Do blur contact details and customer or account IDs in every screenshot before it ships."
+      "Do keep gold as the only hue and use it for live or current state, stacks and the contact action.",
+      "Do separate content with 1px hairlines and a gold-on-hover left rule, never with shadows or tinted panels.",
+      "Do set large type as 200 against 600 at one size with negative tracking (-0.04em display, -0.03em headline).",
+      "Do put product screenshots on white plates with a hairline border, 16:10, cropped top-left.",
+      "Do gate the spotlight to fine pointers with no reduced-motion preference.",
+      "Do keep every interactive target at least 44px."
     ],
     "donts": [
-      "Don't use box shadows, cards, tinted panels or pill shapes.",
-      "Don't introduce a second typeface; Bricolage Grotesque covers every role.",
-      "Don't switch to a cream ground, an italic display serif or terracotta accents.",
-      "Don't add uppercase tracked kickers or eyebrow labels above headings.",
-      "Don't use Ink Blue as a fill or text colour at rest."
+      "Don't render stacks as pills or chips; they are slash-separated gold mono lines.",
+      "Don't dim sibling cards on hover.",
+      "Don't add box-shadows or glows beyond the cursor spotlight.",
+      "Don't introduce a second accent or the reference's navy and teal.",
+      "Don't use the batik as a generated or vector pattern; only real crops of the shirt photo.",
+      "Don't set prose or headings in mono."
     ]
   }
 }

@@ -5,27 +5,24 @@ primary_target: "src/App.jsx"
 related_targets: []
 ---
 
-# Portfolio home (src/App.jsx)
+# Portfolio home (src/App.jsx), branch design/split
 
-Scope: single-page portfolio. Mode: Experience. Audience: tech recruiters first, freelance clients second. Action: email, LinkedIn, GitHub. Stack: React + Vite + Tailwind CSS v4 (user request, 2026-11-17).
+Scope: single-page portfolio. Mode: Experience. Audience: tech recruiters first, freelance clients second. Action: email, LinkedIn, GitHub. Stack: React + Vite + Tailwind CSS v4.
 
 ## Direction contract
 
-User-pinned on 2026-11-17, replacing the Ticker Wall build the user rejected: "light, editorial, elegant", no references, natural photo. The pin beats the roll; no concept round ran.
+User-pinned 2026-11-18: use brittanychiang.com as the structural reference, "not plek ketiplek" (not a copy), and add ideas that make it more engaging. The pin beats the roll; no concept round ran. Borrowed: the structure only (sticky identity panel on the left, scrolling content on the right, scroll-spy nav, list cards that dim their siblings on hover, a cursor spotlight). Not borrowed: palette, type, copy and imagery.
 
-THESIS: A quiet, typeset record of serious fintech work. Elegance comes from scale, measure and spacing. Refuses both the dark-mode dev template and the AI editorial default (cream ground, italic display serif, terracotta).
+THESIS: A two-panel developer profile. Identity and navigation stay fixed while the work scrolls, so a recruiter always knows who and where. Its own world comes from the batik sogan shirt in the portrait, not the reference's navy and teal.
 
-OWN-WORLD: Cool stone-white ground #F5F5F2, ink #15161A, graphite secondary text, hairline rules #DDDCD6, one deep ink-blue accent #2B3A8C for links and focus only. A single family, Bricolage Grotesque, with its optical-size axis: light, tight display at large sizes, regular text at body sizes, tabular numerals for dates. No cards, no shadows, no pills. Hairlines and whitespace carry the structure. The photo is shown natural.
+OWN-WORLD: Warm near-black ground #0F0E0C, raised surface #1A1815, hairline #2A2722, headings #E9E4DA, body #A8A196, dim labels #85807A, and one accent, sogan gold #E0B45C, for links, active nav, pills and the spotlight. Geist for text and Geist Mono for dates, labels and pills. Card radius 6px. No pills: stacks are slash-separated mono lines in gold. Cards carry a 1px left rule that turns gold on hover. No sibling dimming. No shadows except the spotlight glow. A batik band (real photo crop) sits at the top on mobile.
 
-STORY: Visitor reads who he is and what he builds in one sentence, sees the employers and dates as a clean index, scans what was shipped, glances at three projects, and emails.
+STORY: Left panel: name, role, stack line, "Currently at Beyondtech" status, scroll-spy nav (About, Experience, Projects, Contact), social icons. Right: a real Beyondtech screen opens the column ("Now building", opens the gallery), then About with the portrait and the stack, experience cards (date column, role · company link, summary, three highlights, slash-separated stack line, screen thumbnails that open a lightbox gallery), earlier internships and education, project cards with thumbnails, then a closing contact block.
 
-FIRST VIEWPORT: Thin header (name left, three nav links right). A 12-column grid. Left 7 columns: a display statement at ~5.5rem, then the availability line and the actions (ink "Email me" button plus LinkedIn and GitHub text links). Right 5 columns: natural portrait at 4:5. Under both, a hairline index of roles (company, role, years) spanning the width.
+FIRST VIEWPORT: Desktop: a fixed batik selvedge strip (a real crop of the parang border from the portrait shirt) runs down the left edge. The left half holds the name set in weight contrast (Ouzy extralight over Maulana semibold), the role, the gold stack line, the status, a dot-marker nav and the socials. The right half opens on a large real Beyondtech dashboard screen with a "Now building" caption, then the About copy and the portrait at 12rem. Mobile: a single column with the identity block first, and section labels that stick while scrolling.
 
-FORM: user-pinned light editorial (seed c33cb2ee superseded by the pin). Signature moment: the display statement sets in line by line on load (a short rise and fade, from a visible default), and the role index rules draw left to right. Reduced motion renders the final state.
+FORM: user-pinned reference structure (seed c33cb2ee superseded). Signature interactions: a gold cursor spotlight on the page ground (fine pointers only, off under reduced motion), a dot nav whose marker scales up for the active section, card rules that turn gold, and a native <dialog> lightbox for app screens (arrow keys, Esc, focus trapped), reachable from the opening screen and from each role's thumbnails.
 
-ADAPTATIONS: Employer app screens (Beyondtech, BNI Sekuritas) ship in a per-role horizontal scroll-snap carousel that bleeds to the viewport edge, with square prev/next controls; the Beyondtech landing page sits in a 16:10 frame that scrolls vertically from sm up and is a static top crop on mobile (user asked for swipeable galleries, 2026-11-18). Shipped lists show three rows and disclose the rest with "Show all N". Motion beyond the hero: ledger hairlines draw left to right on scroll (view timeline), and the carousel fades in once. Contact details and customer/account IDs in screenshots are blurred.
+ADAPTATIONS: Reviewer round 1 moved the build off the reference's classes (nav, pills, dimming, hover plate, colophon) at the user's "not a copy" pin. Screens keep their blur of contact details and customer/account IDs.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
-
-## Open
-- None.
