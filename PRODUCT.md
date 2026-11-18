@@ -27,13 +27,13 @@ Fintech-grade frontend work: merchant and internal backoffice systems (auth flow
 
 Work history (from CV, Sep 2026):
 - Frontend Developer, PT. Adisena Mitra Usaha (Beyondtech), Jakarta — Sep 2025–present. SvelteKit, TypeScript, Tailwind, MVVM. Auth (register, email verify, password recovery), merchant onboarding, disbursement data management, service activation/deactivation (Disbursement, Disbursement API incl. credentials, QRIS), PIN input and forgot PIN, automated EOD reporting and in-app notifications, rebuilt company landing page in Next.js + TypeScript, fixed critical production issues.
-- Frontend Developer, PT. BNI Sekuritas, Jakarta — Jan 2024–Sep 2025. ReactJS, TypeScript, Webpack, Micro Frontend. Requirement analysis, design plans, unit-to-system testing and UAT, presenting outcomes to management and clients.
+- Frontend Developer, PT. BNI Sekuritas, Jakarta — Jan 2024–Sep 2025. ReactJS, Angular (confirmed by the user; missing from the CV), TypeScript, Webpack, Micro Frontend. Requirement analysis, design plans, unit-to-system testing and UAT, presenting outcomes to management and clients.
 - Frontend Engineer intern, PT. Solusi Pembayaran Elektronik — Feb–Aug 2023. React, Next.js, Express, JWT, Figma.
 - Software Engineer intern, PT. Solusi Pembayaran Elektronik — Feb–Jul 2021. PHP, CodeIgniter, MySQL, e-commerce.
 
 Education: Binus University, S1 Computer Science (2024–present); Politeknik Aceh, D3 Information Technology (2019–2022); Binar Academy, Front End Engineering (2023–2024).
 
-Skills: HTML/CSS, Sass, JavaScript, TypeScript, React, Next.js, SvelteKit, Express, PHP, Node, SQL, Laravel, CodeIgniter, REST APIs. Tools: Figma, Postman, Git/GitHub/GitLab, Tailwind, Material UI, Bootstrap, Redux, Zustand, JWT, Jira.
+Skills: HTML/CSS, Sass, JavaScript, TypeScript, React, Angular, Next.js, SvelteKit, Express, PHP, Node, SQL, Laravel, CodeIgniter, REST APIs. Tools: Figma, Postman, Git/GitHub/GitLab, Tailwind, Material UI, Bootstrap, Redux, Zustand, JWT, Jira.
 
 ## Capabilities and Constraints
 

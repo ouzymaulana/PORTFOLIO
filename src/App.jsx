@@ -2,6 +2,16 @@ import portrait from "./img/ouzy.jpg";
 import foodieOrder from "./img/foodieOrder.jpg";
 import ecommerce from "./img/e-commerce.jpg";
 import uranus from "./img/uranus-cafe.jpg";
+import btLanding from "./img/beyondtech/landing-news.jpg";
+import btRegister from "./img/beyondtech/register.jpg";
+import btResend from "./img/beyondtech/resend-limit.jpg";
+import btActivation from "./img/beyondtech/service-activation.jpg";
+import btPin from "./img/beyondtech/pin.jpg";
+import btControl from "./img/beyondtech/service-control.jpg";
+import btEod from "./img/beyondtech/eod-schedule.jpg";
+import btSales from "./img/beyondtech/sales-report.jpg";
+import bnisH2h from "./img/bnis/host-to-host.jpg";
+import bnisModules from "./img/bnis/module-launcher.jpg";
 
 const EMAIL = "ouzymaulana@gmail.com";
 const LINKS = {
@@ -21,7 +31,19 @@ const ROLES = [
     place: "Jakarta",
     summary: "Internal and merchant backoffice applications covering disbursement, QRIS services and daily reconciliation.",
     stack: ["SvelteKit", "TypeScript", "Tailwind CSS", "MVVM", "Next.js"],
-    shot: null, // import a screenshot and set it here to show it
+    site: ["beyondtech.co.id", "https://beyondtech.co.id/"],
+    // screens: [image, caption, width, height, wide?, scrollable?]
+    screens: [
+      [btLanding, "Company website, News page, built in Next.js and TypeScript.", 1600, 2400, true, true],
+      [btRegister, "Merchant registration, business and personal accounts", 1600, 800],
+      [btResend, "Password reset with a resend limit and countdown", 1600, 800],
+      [btActivation, "Merchant dashboard: requesting Disbursement and Disbursement API", 1600, 1200],
+      [btPin, "PIN confirmation before sensitive actions", 1600, 1200],
+      [btControl, "Internal backoffice: per-merchant service control and pricing priority", 1600, 1200],
+      [btEod, "Internal backoffice: end-of-day schedule for a disbursement channel", 1600, 1196],
+      [btSales, "Internal backoffice: sales report with export", 1600, 1200, true],
+    ],
+    screensNote: "Screens from the staging environment with demo data. Contact details are blurred.",
     shipped: [
       ["Authentication", "End-to-end flow: registration, email verification and password recovery."],
       ["Merchant onboarding", "Streamlined first-time registration for new merchants."],
@@ -41,11 +63,16 @@ const ROLES = [
     years: "2024–2025",
     period: "Jan 2024 – Sep 2025",
     place: "Jakarta",
-    summary: "Web applications for a securities firm, built on a micro-frontend architecture.",
-    stack: ["React", "TypeScript", "Webpack", "Micro Frontend"],
-    shot: null,
+    summary: "Internal web applications for a securities firm, built as modules on a micro-frontend platform.",
+    stack: ["React", "Angular", "TypeScript", "Webpack", "Micro Frontend"],
+    screens: [
+      [bnisH2h, "Host to Host BNI v2: generating RDI opening accounts", 1600, 787],
+      [bnisModules, "The internal platform's module launcher, with role-based access per module", 1600, 786],
+    ],
+    screensNote: "Screens from the development environment. Customer and account IDs are blurred.",
     shipped: [
-      ["Micro frontends", "React and TypeScript apps on a Webpack-based micro-frontend architecture, built for scalability and maintainability."],
+      ["Micro frontends", "React, Angular and TypeScript apps on a Webpack-based micro-frontend architecture, built for scalability and maintainability."],
+      ["Host to Host", "Worked on the Host to Host BNI module, which covers RDI account opening, overbooking, clearing, RTGS and account inquiry."],
       ["Planning", "Turned user requirements into design plans and implementation designs."],
       ["Testing", "Unit-to-system testing, and UAT on request."],
       ["Delivery", "Presented outcomes to management and clients."],
@@ -87,7 +114,7 @@ const PROJECTS = [
 
 const STACK = [
   ["Languages", "TypeScript, JavaScript, HTML, CSS, Sass, PHP, SQL"],
-  ["Frameworks", "SvelteKit, React, Next.js, Express, Node, Laravel, CodeIgniter"],
+  ["Frameworks", "SvelteKit, React, Angular, Next.js, Express, Node, Laravel, CodeIgniter"],
   ["UI & state", "Tailwind CSS, Material UI, Bootstrap, Redux, Zustand"],
   ["Workflow", "Git, GitHub, GitLab, Jira, Figma, Postman, REST APIs, JWT"],
 ];
@@ -215,9 +242,39 @@ function Experience() {
               <h3 className="text-[clamp(1.625rem,2.4vw,1.875rem)] leading-tight font-[400] tracking-[-0.025em]">{r.company}</h3>
               <p className="text-graphite tabular-nums">{r.period}</p>
             </header>
-            <p className="mt-2 text-graphite">{r.role} · {r.legal} · {r.place}</p>
+            <p className="mt-2 text-graphite">
+              {r.role} · {r.legal} · {r.place}
+              {r.site && (
+                <>
+                  {" · "}
+                  <a href={r.site[1]} target="_blank" rel="noreferrer" className="link inline-flex items-center gap-1">
+                    {r.site[0]} <Arrow />
+                  </a>
+                </>
+              )}
+            </p>
             <p className="mt-6 max-w-[58ch] text-[1.1875rem] leading-relaxed">{r.summary}</p>
-            {r.shot && <img src={r.shot} alt={`${r.company} application`} loading="lazy" className="mt-10 w-full border border-rule" />}
+            {r.screens.length > 0 && (
+              <div className="mt-10">
+                <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2">
+                  {r.screens.map(([src, caption, w, h, wide, scroll]) => (
+                    <figure key={caption} className={wide ? "sm:col-span-2" : ""}>
+                      <div
+                        className={`border border-rule bg-plate ${scroll ? "max-h-[min(78vh,760px)] overflow-y-auto overscroll-contain" : "overflow-hidden"}`}
+                        {...(scroll && { tabIndex: 0, role: "region", "aria-label": `${caption} (scrollable)` })}
+                      >
+                        <img src={src} alt={caption} width={w} height={h} loading="lazy" decoding="async" className="w-full" />
+                      </div>
+                      <figcaption className="mt-3 max-w-[48ch] text-[0.95rem] text-graphite">
+                        {caption}
+                        {scroll && <span className="max-sm:hidden"> Scroll inside the frame to see the full page.</span>}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+                <p className="mt-8 text-sm text-quiet">{r.screensNote}</p>
+              </div>
+            )}
             <dl className="mt-10 border-t border-rule">
               {r.shipped.map(([k, v]) => (
                 <div key={k} className="grid gap-x-8 gap-y-1 border-b border-rule py-4 sm:grid-cols-[13rem_1fr]">
