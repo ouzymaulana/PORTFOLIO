@@ -44,7 +44,6 @@ const ROLES = [
       [btEod, "Internal backoffice: end-of-day schedule for a disbursement channel", 1600, 1196],
       [btSales, "Internal backoffice: sales report with export", 1600, 1200, true],
     ],
-    screensNote: "From the staging environment with demo data; contact details blurred.",
     shipped: [
       ["Authentication", "End-to-end flow: registration, email verification and password recovery."],
       ["Merchant onboarding", "Streamlined first-time registration for new merchants."],
@@ -70,7 +69,6 @@ const ROLES = [
       [bnisH2h, "Host to Host BNI v2: generating RDI opening accounts", 1600, 787],
       [bnisModules, "The internal platform's module launcher, with role-based access per module", 1600, 786],
     ],
-    screensNote: "From the development environment; customer and account IDs blurred.",
     shipped: [
       ["Micro frontends", "React, Angular and TypeScript apps on a Webpack-based micro-frontend architecture, built for scalability and maintainability."],
       ["Host to Host", "Worked on the Host to Host BNI module, which covers RDI account opening, overbooking, clearing, RTGS and account inquiry."],
@@ -145,7 +143,7 @@ function Chevron({ left }) {
 }
 
 // Horizontal, scroll-snapping screen gallery. Native scroll does the work; the buttons only nudge it.
-function Carousel({ screens, label, note }) {
+function Carousel({ screens, label }) {
   const track = useRef(null);
   const [edge, setEdge] = useState({ start: true, end: false });
 
@@ -166,8 +164,7 @@ function Carousel({ screens, label, note }) {
 
   return (
     <div className="reveal mt-10">
-      <div className="mb-4 flex items-center justify-between gap-4">
-        <p className="text-sm text-quiet">{screens.length} screens · {note}</p>
+      <div className="mb-4 flex justify-end">
         <div className="flex shrink-0 gap-2">
           <button type="button" className={btn} onClick={() => nudge(-1)} disabled={edge.start} aria-label={`Previous ${label} screens`}>
             <Chevron left />
@@ -374,7 +371,7 @@ function Experience() {
               )}
             </p>
             <p className="mt-6 max-w-[58ch] text-[1.1875rem] leading-relaxed">{r.summary}</p>
-            {r.screens.length > 0 && <Carousel screens={r.screens} label={r.company} note={r.screensNote} />}
+            {r.screens.length > 0 && <Carousel screens={r.screens} label={r.company} />}
             <ShippedList items={r.shipped} />
             <p className="mt-5 text-sm text-quiet">{r.stack.join(" · ")}</p>
           </article>

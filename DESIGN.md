@@ -270,7 +270,7 @@ Screenshot on the white plate inside a 1px Hairline border, clipped, at the capt
 ### Screen Carousel
 Employer app screens, one carousel per role, sitting above that role's shipped list. A horizontal scroll-snap track (mandatory, snapping to slide start, 1.25rem gap, thin Hairline scrollbar) that bleeds to the viewport edge (see Layout). Native scroll does the work; the two square controls only nudge it by 80% of the track width and dim to 30% at either end. Controls are Ink chevrons on Stone Paper with a Hairline border, filling Ink with a Stone Paper chevron on hover (never Ink Blue at rest or as a fill).
 - **Slides:** each screenshot on the white plate in a 1px Hairline frame, height clamp(210px, 28vw, 400px), width from the capture's own aspect ratio, capped at 84vw; cropped from the top left, zooming to 1.02 on hover over 700ms expo.
-- **Header line:** above the track, left, in Label Quiet Grey: "N screens · note", where the note states the environment and what was blurred.
+- **Controls row:** above the track, right-aligned; no count or note line (removed at the owner's request).
 - **Captions:** Body Small Graphite under each slide, wrapping to the slide width.
 - **Landing slide:** a full-length page capture shown in a 16:10 frame that scrolls vertically from 640px up (focusable, with a Quiet Grey hint "Scroll the frame to see the full page."); below 640px it is a static top crop.
 - **Motion:** the whole carousel fades up 1.5rem once as it enters the viewport (view timeline, entry 5% to 45%); the only reveal on the page.
@@ -287,7 +287,7 @@ For long shipped lists: the first three ledger rows always show, the rest sit in
 - **Do** set every date and year in tabular numerals.
 - **Do** keep the motion to the hero rise (0.9s), the hero rule draw (1.1s), the scroll-driven ledger rule draw and the single carousel fade, all on cubic-bezier(0.16, 1, 0.3, 1) (the fade is linear on its timeline); gate scroll-driven motion behind view-timeline support and render the final state under reduced motion.
 - **Do** show photos and screenshots natural, with no filters or overlays.
-- **Do** blur contact details and customer or account IDs in every screenshot before it ships, and say so in the carousel's note.
+- **Do** blur contact details and customer or account IDs in every screenshot before it ships.
 
 ### Don't:
 - **Don't** use box shadows, cards, tinted panels or pill shapes.
