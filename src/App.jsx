@@ -14,6 +14,7 @@ import btEod from "./img/beyondtech/eod-schedule.jpg";
 import btSales from "./img/beyondtech/sales-report.jpg";
 import bnisH2h from "./img/bnis/host-to-host.jpg";
 import bnisModules from "./img/bnis/module-launcher.jpg";
+import bnisIpo from "./img/bnis/h2h-ipo.jpg";
 import batikStrip from "./img/batik-strip.jpg";
 import batikBand from "./img/batik-band.jpg";
 
@@ -70,11 +71,13 @@ const ROLES = [
     stack: ["React", "Angular", "TypeScript", "Webpack", "Micro Frontend"],
     screens: [
       [bnisH2h, "Host to Host BNI v2: generating RDI opening accounts", 1600, 787],
+      [bnisIpo, "Host to Host IPO: monitoring IPO products, with product sync and offering execution", 1280, 680],
       [bnisModules, "The internal platform's module launcher, with role-based access per module", 1600, 786],
     ],
     shipped: [
       ["Micro frontends", "React, Angular and TypeScript apps on a Webpack-based micro-frontend architecture, built for scalability and maintainability."],
       ["Host to Host", "Worked on the Host to Host BNI module, which covers RDI account opening, overbooking, clearing, RTGS and account inquiry."],
+      ["Host to Host IPO", "Worked on the Host to Host IPO module: product, order and scheduler monitoring for IPO offerings."],
       ["Planning", "Turned user requirements into design plans and implementation designs."],
       ["Testing", "Unit-to-system testing, and UAT on request."],
       ["Delivery", "Presented outcomes to management and clients."],
